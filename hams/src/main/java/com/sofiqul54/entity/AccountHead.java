@@ -1,6 +1,7 @@
 package com.sofiqul54.entity;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "account_head")
@@ -9,8 +10,11 @@ public class AccountHead {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false, unique = true)
-    private String name;
+    private String Accountname;
     private String description;
+
+    public AccountHead() {
+    }
 
     public Long getId() {
         return id;
@@ -20,20 +24,34 @@ public class AccountHead {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getAccountname() {
+        return Accountname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAccountname(String accountname) {
+        Accountname = accountname;
     }
 
     public String getDescription() {
-
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AccountHead that = (AccountHead) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(Accountname, that.Accountname) &&
+                Objects.equals(description, that.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, Accountname, description);
     }
 }

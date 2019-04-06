@@ -24,10 +24,10 @@
                     <span th:class="err" th:text="${rejectMsg}"></span>
                     <form th:object="${user}" th:action="@{/user/add}" th:method="POST">
 
-                        <div class="form-group row">
+                        <div class="form-group row"><!--class="form-group row"-->
                             <label for="roles" class="col-sm-3 col-form-label form-label">Roles</label>
                             <div class="col-sm-9">
-                                <select th:field="*{roles}" multiple id="roles">
+                                <select name="select" th:field="*{roles}" multiple id="roles">
                                     <option th:each="role : ${rolelist}"
                                             th:value="${role.id}">
                                         <span th:text="${role.roleName}"></span>
@@ -74,7 +74,7 @@
                         <div class="form-group row">
                             <label for="mobile" class="col-sm-3 col-form-label form-label">Mobile</label>
                             <div class="col-sm-9">
-                                <input type="number" class="form-control" th:field="*{mobile}"  id="mobile" placeholder="Mobile">
+                                <input type="text" class="form-control" th:field="*{mobile}"  id="mobile" placeholder="Mobile">
                             </div>
                         </div>
 

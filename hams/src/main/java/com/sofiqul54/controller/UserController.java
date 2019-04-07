@@ -17,8 +17,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;
-import java.util.Optional;
 import java.util.UUID;
+
 
 @Controller
 @RequestMapping(value = "/user/")
@@ -80,9 +80,15 @@ public class UserController {
     @PostMapping(value = "/edit/{id}")
     public String userEdit(@Valid User user, BindingResult bindingResult, @PathVariable("id") Long id, Model model, @RequestParam("file") MultipartFile file) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("rolelistAdd", this.roleRepo.findAll());
+            model.addAttribute("rolelist", this.roleRepo.findAll());
             return "users/edit";
         }
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        /*user.setRegiDate(new Date());*/
+        user.setEnabled(true);
+        user.setConfirmationToken(UUID.randomUUID().toString());
+        user.setId(id);
+
         try {
             //////////////////////For Image Upload start /////////////////////
             byte[] bytes = file.getBytes();
@@ -98,7 +104,6 @@ public class UserController {
 
             this.repo.save(user);
             model.addAttribute("user", new User());
-            model.addAttribute("success", "Congratulations! Data save sucessfully");
             imageOptimizer.optimizeImage(UPLOADED_FOLDER, file, 0.3f, 100, 100);
 
         }catch (Exception e){
@@ -106,9 +111,9 @@ public class UserController {
 
         }
 
-        model.addAttribute("rolelistAdd", this.roleRepo.findAll());
+        model.addAttribute("rolelist", this.roleRepo.findAll());
 
-        return "user/edit";
+        return "redirect:/user/list";
     }
 
     /*@PostMapping(value = "edit/{id}")

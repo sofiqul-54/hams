@@ -9,6 +9,7 @@ public class HomeController {
     public String displayDashboard(){
         return "dashboard";
     }
+
     @GetMapping(value = "/about")
     public String displayAbout(){
         return "about";

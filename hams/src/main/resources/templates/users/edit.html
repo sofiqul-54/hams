@@ -20,8 +20,8 @@
                     <div class="card-header-title">Edit User</div>
                 </div>
                 <div class="card-body">
-                    <span th:class="err" th:text="${rejectMsg}"></span>
-                    <form th:object="${user}" th:action="@{/user/edit/}+${id}" th:method="POST">
+                    <!--<span th:class="err" th:text="${rejectMsg}"></span>-->
+                    <form th:object="${user}" th:action="@{/user/edit/}+${id}" th:method="POST" enctype="multipart/form-data">
                         <div class="form-group row">
                             <label for="roles" class="col-sm-3 col-form-label form-label">Roles</label>
                             <div class="col-sm-9">

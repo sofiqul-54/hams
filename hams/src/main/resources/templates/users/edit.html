@@ -22,6 +22,15 @@
                 <div class="card-body">
                     <!--<span th:class="err" th:text="${rejectMsg}"></span>-->
                     <form th:object="${user}" th:action="@{/user/edit/}+${id}" th:method="POST" enctype="multipart/form-data">
+                        <div>
+                            <input type="hidden" th:field="*{id}" th:value="${user.id}" class="form-control"/>
+                            <input type="hidden" th:field="*{regiDate}" th:value="${user.regiDate}" class="form-control"/>
+                            <input type="hidden" th:field="*{password}" th:value="${user.password}" class="form-control"/>
+                            <input type="hidden" th:field="*{enabled}" th:value="${user.enabled}" class="form-control"/>
+                            <input type="hidden" th:field="*{confirmationToken}" th:value="${user.confirmationToken}" class="form-control"/>
+
+                        </div>
+
                         <div class="form-group row">
                             <label for="roles" class="col-sm-3 col-form-label form-label">Roles</label>
                             <div class="col-sm-9">

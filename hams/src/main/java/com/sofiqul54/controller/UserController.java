@@ -83,11 +83,12 @@ public class UserController {
             model.addAttribute("rolelist", this.roleRepo.findAll());
             return "users/edit";
         }
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        /*user.setRegiDate(new Date());*/
-        user.setEnabled(true);
-        user.setConfirmationToken(UUID.randomUUID().toString());
-        user.setId(id);
+        /*User eUser=repo.findByUserName(user.getUserName());
+        eUser.setPassword(passwordEncoder.encode(user.getPassword()));
+        eUser.setEnabled(user.isEnabled());
+        eUser.setEmail(user.getEmail());
+        eUser.setConfirmationToken(UUID.randomUUID().toString());
+        eUser.setId(id);*/
 
         try {
             //////////////////////For Image Upload start /////////////////////
@@ -98,7 +99,7 @@ public class UserController {
             user.setFileName("new-" + file.getOriginalFilename());
             user.setFileSize(file.getSize());
             // user.setFile(file.getBytes());
-            user.setFilePath("images/" + "new-" + file.getOriginalFilename());
+            user.setFilePath("/images/" + "new-" + file.getOriginalFilename());
             user.setFileExtension(file.getContentType());
             //////////////////////For Image Upload end/////////////////////
 

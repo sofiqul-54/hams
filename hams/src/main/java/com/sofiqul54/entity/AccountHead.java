@@ -10,7 +10,7 @@ public class AccountHead {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false, unique = true)
-    private String Accountname;
+    private String accountname;
     private String description;
 
     public AccountHead() {
@@ -25,11 +25,11 @@ public class AccountHead {
     }
 
     public String getAccountname() {
-        return Accountname;
+        return accountname;
     }
 
     public void setAccountname(String accountname) {
-        Accountname = accountname;
+        this.accountname = accountname;
     }
 
     public String getDescription() {
@@ -40,18 +40,19 @@ public class AccountHead {
         this.description = description;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AccountHead that = (AccountHead) o;
         return Objects.equals(id, that.id) &&
-                Objects.equals(Accountname, that.Accountname) &&
+                Objects.equals(accountname, that.accountname) &&
                 Objects.equals(description, that.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, Accountname, description);
+        return Objects.hash(id, accountname, description);
     }
 }

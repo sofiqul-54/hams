@@ -24,10 +24,16 @@
                     <span th:class="err" th:text="${rejectMsg}"></span>
                     <form th:object="${accountheadinfo}" th:action="@{/achead/add}" th:method="POST">
                         <div class="form-group row">
-                            <label for="accountname" class="col-sm-3 col-form-label form-label">Role Name</label>
+                            <label for="accountname" class="col-sm-3 col-form-label form-label">Account Name</label>
                             <div class="col-sm-9">
+                                <input type="text" class="form-control" th:field="*{accountname}"  id="accountname" placeholder="Account Name">
+                            </div>
+                        </div>
 
-                                <input type="text" class="form-control" th:field="*{accountname}"  id="accountname" placeholder="Role Name">
+                        <div class="form-group row">
+                            <label for="description" class="col-sm-3 col-form-label form-label">Description</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" th:field="*{description}"  id="description" placeholder="Description">
                             </div>
                         </div>
 
@@ -41,7 +47,6 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 </body>
 </html>

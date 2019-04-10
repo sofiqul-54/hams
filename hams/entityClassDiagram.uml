@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.sofiqul54.entity</OriginalElement>
+  <nodes>
+    <node x="1068.90625" y="1132.0">com.sofiqul54.entity.PaymentDetails</node>
+    <node x="885.90625" y="1143.5">com.sofiqul54.entity.VisaInfo</node>
+    <node x="0.0" y="1640.0">com.sofiqul54.entity.AgencyInfo</node>
+    <node x="2048.40625" y="0.0">com.sofiqul54.entity.Role</node>
+    <node x="1914.90625" y="191.0">com.sofiqul54.entity.User</node>
+    <node x="0.0" y="660.0">com.sofiqul54.entity.AccountHead</node>
+    <node x="1472.90625" y="1132.0">com.sofiqul54.entity.BookingSummary</node>
+    <node x="4.7192460317460245" y="1411.0">com.sofiqul54.entity.Exprnses</node>
+    <node x="549.90625" y="1132.0">com.sofiqul54.entity.PassportInfo</node>
+    <node x="1030.3645833333335" y="99.0">com.sofiqul54.entity.Ppackage</node>
+    <node x="90.90625" y="1110.0">com.sofiqul54.entity.Income</node>
+    <node x="361.90625000000006" y="1143.5">com.sofiqul54.entity.TicketFlightInfo</node>
+    <node x="757.2812500000001" y="429.0">com.sofiqul54.entity.Pilgrim</node>
+    <node x="457.8859126984127" y="0.0">com.sofiqul54.entity.Groupleader</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.sofiqul54.entity.PassportInfo" target="com.sofiqul54.entity.Pilgrim">
+      <point x="79.0" y="-103.5" />
+      <point x="786.90625" y="1090.0" />
+      <point x="848.4895833333334" y="1090.0" />
+      <point x="-8.291666666666742" y="290.5" />
+    </edge>
+    <edge source="com.sofiqul54.entity.Income" target="com.sofiqul54.entity.Ppackage">
+      <point x="47.0625" y="-125.5" />
+      <point x="263.46875" y="1030.0" />
+      <point x="340.18402777777777" y="1030.0" />
+      <point x="340.18402777777777" y="389.0" />
+      <point x="1068.4270833333335" y="389.0" />
+      <point x="-63.4375" y="70.5" />
+    </edge>
+    <edge source="com.sofiqul54.entity.PaymentDetails" target="com.sofiqul54.entity.Pilgrim">
+      <point x="-144.0" y="-103.5" />
+      <point x="1116.90625" y="1070.0" />
+      <point x="898.2395833333334" y="1070.0" />
+      <point x="41.45833333333326" y="290.5" />
+    </edge>
+    <edge source="com.sofiqul54.entity.Income" target="com.sofiqul54.entity.Pilgrim">
+      <point x="78.4375" y="-125.5" />
+      <point x="294.84375" y="1040.0" />
+      <point x="765.5729166666667" y="1040.0" />
+      <point x="-91.20833333333337" y="290.5" />
+    </edge>
+    <edge source="com.sofiqul54.entity.User" target="com.sofiqul54.entity.Role">
+      <point x="105.0" y="-246.5" />
+      <point x="2229.90625" y="166.0" />
+      <point x="2163.15625" y="166.0" />
+      <point x="38.25" y="70.5" />
+    </edge>
+    <edge source="com.sofiqul54.entity.Pilgrim" target="com.sofiqul54.entity.Ppackage">
+      <point x="24.875" y="-290.5" />
+      <point x="881.6562500000001" y="399.0" />
+      <point x="1093.8020833333335" y="399.0" />
+      <point x="-38.0625" y="70.5" />
+    </edge>
+    <edge source="com.sofiqul54.entity.BookingSummary" target="com.sofiqul54.entity.Ppackage">
+      <point x="148.875" y="-103.5" />
+      <point x="1820.28125" y="1090.0" />
+      <point x="1776.15625" y="1090.0" />
+      <point x="1776.15625" y="379.0" />
+      <point x="1220.6770833333335" y="379.0" />
+      <point x="88.8125" y="70.5" />
+    </edge>
+    <edge source="com.sofiqul54.entity.Income" target="com.sofiqul54.entity.Groupleader">
+      <point x="-47.0625" y="-125.5" />
+      <point x="169.34375" y="1080.0" />
+      <point x="199.90625" y="1080.0" />
+      <point x="199.90625" y="359.0" />
+      <point x="478.5109126984127" y="359.0" />
+      <point x="-61.875" y="169.5" />
+    </edge>
+    <edge source="com.sofiqul54.entity.BookingSummary" target="com.sofiqul54.entity.Pilgrim">
+      <point x="-148.875" y="-103.5" />
+      <point x="1522.53125" y="1050.0" />
+      <point x="931.4062500000001" y="1050.0" />
+      <point x="74.625" y="290.5" />
+    </edge>
+    <edge source="com.sofiqul54.entity.Exprnses" target="com.sofiqul54.entity.AccountHead">
+      <point x="-31.375" y="-92.0" />
+      <point x="98.84424603174602" y="1386.0" />
+      <point x="62.219246031746025" y="1386.0" />
+      <point x="62.219246031746025" y="1090.0" />
+      <point x="65.25" y="1090.0" />
+      <point x="-21.75" y="59.5" />
+    </edge>
+    <edge source="com.sofiqul54.entity.VisaInfo" target="com.sofiqul54.entity.Pilgrim">
+      <point x="40.75" y="-92.0" />
+      <point x="1008.15625" y="1080.0" />
+      <point x="881.6562500000001" y="1080.0" />
+      <point x="24.875" y="290.5" />
+    </edge>
+    <edge source="com.sofiqul54.entity.Pilgrim" target="com.sofiqul54.entity.Groupleader">
+      <point x="-24.875" y="-290.5" />
+      <point x="831.9062500000001" y="359.0" />
+      <point x="602.2609126984128" y="359.0" />
+      <point x="61.875" y="169.5" />
+    </edge>
+    <edge source="com.sofiqul54.entity.PaymentDetails" target="com.sofiqul54.entity.Ppackage">
+      <point x="144.0" y="-103.5" />
+      <point x="1404.90625" y="1090.0" />
+      <point x="1382.9444444444446" y="1090.0" />
+      <point x="1382.9444444444446" y="399.0" />
+      <point x="1169.9270833333335" y="399.0" />
+      <point x="38.0625" y="70.5" />
+    </edge>
+    <edge source="com.sofiqul54.entity.Exprnses" target="com.sofiqul54.entity.Income">
+      <point x="94.125" y="-92.0" />
+      <point x="224.34424603174602" y="1386.0" />
+      <point x="279.15625" y="1386.0" />
+      <point x="62.75" y="125.5" />
+    </edge>
+    <edge source="com.sofiqul54.entity.TicketFlightInfo" target="com.sofiqul54.entity.Pilgrim">
+      <point x="42.0" y="-92.0" />
+      <point x="487.90625000000006" y="1070.0" />
+      <point x="815.3229166666667" y="1070.0" />
+      <point x="-41.45833333333337" y="290.5" />
+    </edge>
+    <edge source="com.sofiqul54.entity.Income" target="com.sofiqul54.entity.AccountHead">
+      <point x="-109.8125" y="-125.5" />
+      <point x="106.59375" y="1090.0" />
+      <point x="108.75" y="1090.0" />
+      <point x="21.75" y="59.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.7172284644194755" x="1841.7389033942559" y="971.3002610966058" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

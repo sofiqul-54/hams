@@ -1,8 +1,10 @@
 package com.sofiqul54.controller;
 
 
+import com.sofiqul54.entity.BookingSummary;
 import com.sofiqul54.entity.Income;
 import com.sofiqul54.entity.Pilgrim;
+import com.sofiqul54.entity.Ppackage;
 import com.sofiqul54.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,6 +38,9 @@ public class IncomeController {
     @Autowired
     private AccountHeadRepo accountHeadRepo;
 
+    @Autowired
+    private BookingSummaryRepo bookingSummaryRepo;
+
 
     @GetMapping(value = "add")
     public String viewAdd(Model model) {
@@ -55,6 +60,12 @@ public class IncomeController {
             if (income.getPilgrim() != null){
                 income.setcDate(new Date());
                 this.repo.save(income);
+
+
+                /*BookingSummary bookingSummary = new BookingSummary(bookingSummary.getTotalAmount(), double paidAmount, double dueAmount, Pilgrim pilgrim);
+                bookingSummaryRepo.save(bookingSummary);*/
+
+
                 model.addAttribute("income", new Income());
                 model.addAttribute("successMsg", "Congratulations! Data save sucessfully");
             }

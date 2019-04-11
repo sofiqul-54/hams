@@ -1,12 +1,10 @@
 package com.sofiqul54.controller;
 
 
+import com.sofiqul54.entity.BookingSummary;
 import com.sofiqul54.entity.Pilgrim;
-import com.sofiqul54.entity.Ppackage;
-import com.sofiqul54.entity.User;
 import com.sofiqul54.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 import java.util.Date;
 import java.util.Optional;
-import java.util.UUID;
 
 @Controller
 @RequestMapping(value = "/pilgrim/")
@@ -34,7 +31,8 @@ public class PilgrimController {
 
     @Autowired
     private GroupleaderRepo groupleaderRepo;
-
+@Autowired
+private BookingSummaryRepo bookingSummaryRepo;
 
     @GetMapping(value = "add")
     public String viewAdd(Pilgrim pilgrim, Model model) {
@@ -55,6 +53,10 @@ public class PilgrimController {
                 } else {
                     pilgrim.setRegiDate(new Date());
                     this.repo.save(pilgrim);
+                    double due=pilgrim.getPpackage().getPrice() - pilgrim.getBookingAmount();
+
+                    BookingSummary bookingSummary=new BookingSummary(pilgrim.getPpackage().getPrice(), pilgrim.getBookingAmount(), due, pilgrim,pilgrim.getPpackage());
+                    bookingSummaryRepo.save(bookingSummary);
                     model.addAttribute("pilgrim", new Pilgrim());
                     model.addAttribute("successMsg", "Congratulations! Data save sucessfully");
                 }

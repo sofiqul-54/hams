@@ -39,7 +39,7 @@ public class AccountHeadController {
             this.repo.save(accountHead);
             model.addAttribute("successMsg", "Successfully Saved!");
         }
-        return "accountheads/add";
+        return "redirect:/achead/add";
     }
 
     @GetMapping(value = "edit/{id}")

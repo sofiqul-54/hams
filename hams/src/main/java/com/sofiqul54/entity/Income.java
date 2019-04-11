@@ -50,6 +50,17 @@ public class Income {
     public Income() {
     }
 
+    public Income(String accountTitle, double amount, double totalAmount, Date cDate, Pilgrim pilgrim, Ppackage ppackage, Set<Groupleader> groupleaders, Set<AccountHead> accountHeads) {
+        this.accountTitle = accountTitle;
+        this.amount = amount;
+        this.totalAmount = totalAmount;
+        this.cDate = cDate;
+        this.pilgrim = pilgrim;
+        this.ppackage = ppackage;
+        this.groupleaders = groupleaders;
+        this.accountHeads = accountHeads;
+    }
+
     public Long getId() {
         return id;
     }

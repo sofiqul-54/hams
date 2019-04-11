@@ -38,6 +38,7 @@ public class RoleController {
             role.setRoleName(role.getRoleName().toUpperCase());
             this.repo.save(role);
             model.addAttribute("successMsg", "Successfully Saved!");
+
         }
         return "roles/add";
     }

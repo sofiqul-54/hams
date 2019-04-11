@@ -11,7 +11,7 @@ public class BookingSummary {
 
     private double totalAmount;
 
-    private double bookingAmount;
+    private double paidAmount;
 
     private double dueAmount;
 
@@ -26,12 +26,19 @@ public class BookingSummary {
     public BookingSummary() {
     }
 
-    public BookingSummary(double totalAmount, double bookingAmount, double dueAmount, Pilgrim pilgrim, Ppackage ppackage) {
+    public BookingSummary(double totalAmount, double paidAmount, double dueAmount, Pilgrim pilgrim, Ppackage ppackage) {
         this.totalAmount = totalAmount;
-        this.bookingAmount = bookingAmount;
+        this.paidAmount = paidAmount;
         this.dueAmount = dueAmount;
         this.pilgrim = pilgrim;
         this.ppackage = ppackage;
+    }
+
+    public BookingSummary(double totalAmount, double paidAmount, double dueAmount, Pilgrim pilgrim) {
+        this.totalAmount = totalAmount;
+        this.paidAmount = paidAmount;
+        this.dueAmount = dueAmount;
+        this.pilgrim = pilgrim;
     }
 
     public Long getId() {
@@ -50,12 +57,12 @@ public class BookingSummary {
         this.totalAmount = totalAmount;
     }
 
-    public double getBookingAmount() {
-        return bookingAmount;
+    public double getPaidAmount() {
+        return paidAmount;
     }
 
-    public void setBookingAmount(double bookingAmount) {
-        this.bookingAmount = bookingAmount;
+    public void setPaidAmount(double paidAmount) {
+        this.paidAmount = paidAmount;
     }
 
     public double getDueAmount() {
@@ -80,23 +87,5 @@ public class BookingSummary {
 
     public void setPpackage(Ppackage ppackage) {
         this.ppackage = ppackage;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        BookingSummary that = (BookingSummary) o;
-        return Double.compare(that.totalAmount, totalAmount) == 0 &&
-                Double.compare(that.bookingAmount, bookingAmount) == 0 &&
-                Double.compare(that.dueAmount, dueAmount) == 0 &&
-                Objects.equals(id, that.id) &&
-                Objects.equals(pilgrim, that.pilgrim) &&
-                Objects.equals(ppackage, that.ppackage);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, totalAmount, bookingAmount, dueAmount, pilgrim, ppackage);
     }
 }

@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface IncomeRepo extends JpaRepository<Income, Long> {
-
+Pilgrim findByPilgrimId(Long id);
 
 
 }

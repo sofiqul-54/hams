@@ -20,8 +20,8 @@
                     <div class="card-header-title">Add Pilgrim</div>
                 </div>
                 <div class="card-body">
-                    <span th:class="succes" th:text="${successMsg}"></span>
-                    <span th:class="err" th:text="${rejectMsg}"></span>
+                    <span style="color: green" th:class="succes" th:text="${successMsg}"></span>
+                    <span style="color: red" th:class="err" th:text="${rejectMsg}"></span>
                     <form th:object="${pilgrim}" th:action="@{/pilgrim/add}" th:method="POST">
 
 

@@ -60,6 +60,10 @@ public class Groupleader {
     @Column(unique = true)
     private String district;
 
+    private int commission;
+
+    private double totalCommission;
+
 
     public Groupleader() {
     }
@@ -168,12 +172,30 @@ public class Groupleader {
         this.district = district;
     }
 
+    public int getCommission() {
+        return commission;
+    }
+
+    public void setCommission(int commission) {
+        this.commission = commission;
+    }
+
+    public double getTotalCommission() {
+        return totalCommission;
+    }
+
+    public void setTotalCommission(double totalCommission) {
+        this.totalCommission = totalCommission;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Groupleader that = (Groupleader) o;
-        return Objects.equals(id, that.id) &&
+        return commission == that.commission &&
+                Double.compare(that.totalCommission, totalCommission) == 0 &&
+                Objects.equals(id, that.id) &&
                 Objects.equals(leaderName, that.leaderName) &&
                 Objects.equals(gender, that.gender) &&
                 Objects.equals(regiDate, that.regiDate) &&
@@ -190,6 +212,6 @@ public class Groupleader {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, leaderName, gender, regiDate, birthDate, nid, passportNo, issuDate, expDate, mobile, email, address, district);
+        return Objects.hash(id, leaderName, gender, regiDate, birthDate, nid, passportNo, issuDate, expDate, mobile, email, address, district, commission, totalCommission);
     }
 }

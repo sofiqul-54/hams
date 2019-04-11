@@ -40,7 +40,7 @@ public class GroupleaderController {
             if (groupleader.getEmail() != null) {
 
                 if (repo.existsByEmail(groupleader.getEmail())) {
-                    model.addAttribute("rejectMsg", "UserName allready exist");
+                    model.addAttribute("rejectMsg", "Data allready exist");
                 } else {
                     groupleader.setRegiDate(new Date());
                     this.repo.save(groupleader);

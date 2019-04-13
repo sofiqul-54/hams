@@ -13,23 +13,22 @@ public class Income {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String accountTitle;
 
     private double amount;
 
-    private double totalAmount;
 
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date cDate;
 
     @ManyToOne
-    @JoinColumn(name = "pilgm_id", nullable = false)
+    @JoinColumn(name = "pilgm_id", nullable = true)
     private Pilgrim pilgrim;
 
     @ManyToOne
-    @JoinColumn(name = "income_package", nullable = false)
+    @JoinColumn(name = "income_package", nullable = true)
     private Ppackage ppackage;
 
     @ManyToMany
@@ -53,13 +52,13 @@ public class Income {
     public Income(String accountTitle, double amount, double totalAmount, Date cDate, Pilgrim pilgrim, Ppackage ppackage, Set<Groupleader> groupleaders, Set<AccountHead> accountHeads) {
         this.accountTitle = accountTitle;
         this.amount = amount;
-        this.totalAmount = totalAmount;
         this.cDate = cDate;
         this.pilgrim = pilgrim;
         this.ppackage = ppackage;
         this.groupleaders = groupleaders;
         this.accountHeads = accountHeads;
     }
+
 
     public Long getId() {
         return id;
@@ -83,14 +82,6 @@ public class Income {
 
     public void setAmount(double amount) {
         this.amount = amount;
-    }
-
-    public double getTotalAmount() {
-        return totalAmount;
-    }
-
-    public void setTotalAmount(double totalAmount) {
-        this.totalAmount = totalAmount;
     }
 
     public Date getcDate() {
@@ -139,7 +130,6 @@ public class Income {
         if (o == null || getClass() != o.getClass()) return false;
         Income income = (Income) o;
         return Double.compare(income.amount, amount) == 0 &&
-                Double.compare(income.totalAmount, totalAmount) == 0 &&
                 Objects.equals(id, income.id) &&
                 Objects.equals(accountTitle, income.accountTitle) &&
                 Objects.equals(cDate, income.cDate) &&
@@ -151,6 +141,6 @@ public class Income {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, accountTitle, amount, totalAmount, cDate, pilgrim, ppackage, groupleaders, accountHeads);
+        return Objects.hash(id, accountTitle, amount, cDate, pilgrim, ppackage, groupleaders, accountHeads);
     }
 }

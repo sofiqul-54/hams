@@ -57,19 +57,25 @@ public class IncomeController {
         if (bindingResult.hasErrors()) {
             return "incomes/add";
         } else {
-            if (income.getPilgrim() != null){
+            if (income.getPilgrim() != null) {
                 income.setcDate(new Date());
                 this.repo.save(income);
 
-
-                /*BookingSummary bookingSummary = new BookingSummary(bookingSummary.getTotalAmount(), double paidAmount, double dueAmount, Pilgrim pilgrim);
-                bookingSummaryRepo.save(bookingSummary);*/
-
-
-                model.addAttribute("income", new Income());
-                model.addAttribute("successMsg", "Congratulations! Data save sucessfully");
+                BookingSummary bookingSummary = this.bookingSummaryRepo.findByPilgrim(income.getPilgrim());
+                if (income.getAmount() <= bookingSummary.getDueAmount()) {
+                    double totamoun = bookingSummary.getDueAmount() - income.getAmount();
+                    double pAmount = bookingSummary.getPaidAmount()+income.getAmount();
+                    bookingSummary.setDueAmount(totamoun);
+                    bookingSummary.setPaidAmount(pAmount);
+                    bookingSummaryRepo.save(bookingSummary);
+                } else {
+                    model.addAttribute("rejMsg", "Amount Over Feom Due");
+                }
             }
+            model.addAttribute("income", new Income());
+            model.addAttribute("successMsg", "Congratulations! Data save sucessfully");
         }
+
 
         model.addAttribute("accountheadlist", this.accountHeadRepo.findAll());
         model.addAttribute("pilgrimlist", this.pilgrimRepo.findAll());

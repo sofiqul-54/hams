@@ -15,6 +15,8 @@ public class BookingSummary {
 
     private double dueAmount;
 
+    private double collectionAmount;
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "booksummary_pilgrim", nullable = false)
     private Pilgrim pilgrim;//dropdown hobe
@@ -34,11 +36,14 @@ public class BookingSummary {
         this.ppackage = ppackage;
     }
 
-    public BookingSummary(double totalAmount, double paidAmount, double dueAmount, Pilgrim pilgrim) {
+
+    public BookingSummary(double totalAmount, double paidAmount, double dueAmount, double collectionAmount, Pilgrim pilgrim, Ppackage ppackage) {
         this.totalAmount = totalAmount;
         this.paidAmount = paidAmount;
         this.dueAmount = dueAmount;
+        this.collectionAmount = collectionAmount;
         this.pilgrim = pilgrim;
+        this.ppackage = ppackage;
     }
 
     public Long getId() {
@@ -73,6 +78,14 @@ public class BookingSummary {
         this.dueAmount = dueAmount;
     }
 
+    public double getCollectionAmount() {
+        return collectionAmount;
+    }
+
+    public void setCollectionAmount(double collectionAmount) {
+        this.collectionAmount = collectionAmount;
+    }
+
     public Pilgrim getPilgrim() {
         return pilgrim;
     }
@@ -87,5 +100,24 @@ public class BookingSummary {
 
     public void setPpackage(Ppackage ppackage) {
         this.ppackage = ppackage;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BookingSummary that = (BookingSummary) o;
+        return Double.compare(that.totalAmount, totalAmount) == 0 &&
+                Double.compare(that.paidAmount, paidAmount) == 0 &&
+                Double.compare(that.dueAmount, dueAmount) == 0 &&
+                Double.compare(that.collectionAmount, collectionAmount) == 0 &&
+                Objects.equals(id, that.id) &&
+                Objects.equals(pilgrim, that.pilgrim) &&
+                Objects.equals(ppackage, that.ppackage);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, totalAmount, paidAmount, dueAmount, collectionAmount, pilgrim, ppackage);
     }
 }

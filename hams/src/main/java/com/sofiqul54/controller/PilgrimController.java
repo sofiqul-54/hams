@@ -53,7 +53,8 @@ private BookingSummaryRepo bookingSummaryRepo;
                 } else {
                     pilgrim.setRegiDate(new Date());
                     this.repo.save(pilgrim);
-                    double due=pilgrim.getPpackage().getPrice() - pilgrim.getBookingAmount();
+                    double due= pilgrim.getPpackage().getPrice() - pilgrim.getBookingAmount();
+                    double aol= pilgrim.getBookingAmount();
 
                     BookingSummary bookingSummary=new BookingSummary(pilgrim.getPpackage().getPrice(), pilgrim.getBookingAmount(), due, pilgrim,pilgrim.getPpackage());
                     bookingSummaryRepo.save(bookingSummary);

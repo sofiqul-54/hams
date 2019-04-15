@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav th:fragment="sidenavbar" id="sidebar" class="">
+    <div class="sidebar-header">
+        <a href="../index.html"><img class="main-logo" src="/img/logo/logo.png" th:src="@{/img/logo/logo.png}" alt=""/></a>
+        <strong><img src="/img/logo/logo2.png" th:src="@{/img/logo/logo2.png}" alt=""/></strong>
+    </div>
+    <div class="left-custom-menu-adp-wrap comment-scrollbar">
+        <nav class="sidebar-nav left-sidebar-menu-pro">
+            <ul class="metismenu" id="menu1">
+                <li>
+                    <a class="has-arrow" href="../index.html">
+                        <i class="fa big-icon fa-home icon-wrap"></i>
+                        <span class="mini-click-non">Role</span>
+                    </a>
+                    <ul class="submenu-angle" aria-expanded="true">
+                        <li><a title="Role List" th:href="@{/role/list}"><i class="fa fa-bullseye sub-icon-mg"
+                                                                            aria-hidden="true"></i> <span
+                                class="mini-sub-pro">Role List</span></a></li>
+                        <li><a title="Role Add" th:href="@{/role/add}"><i class="fa fa-circle-o sub-icon-mg"
+                                                                          aria-hidden="true"></i> <span
+                                class="mini-sub-pro">Role Add</span></a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a class="has-arrow" href="#" aria-expanded="false"><i
+                            class="fa big-icon fa-flask icon-wrap"></i> <span class="mini-click-non">User</span></a>
+                    <ul class="submenu-angle" aria-expanded="false">
+                        <li><a title="User List" th:href="@{/user/list}"><i class="fa fa-female sub-icon-mg"
+                                                                            aria-hidden="true"></i> <span
+                                class="mini-sub-pro">User List</span></a></li>
+                        <li><a title="User Detail" th:href="@{/user/add}"><i class="fa fa-heart-o sub-icon-mg"
+                                                                             aria-hidden="true"></i> <span
+                                class="mini-sub-pro">User Add</span></a></li>
+
+                    </ul>
+                </li>
+<!--start organigation -->
+                <li>
+                    <a class="has-arrow" href="#" aria-expanded="false"><i class="fa big-icon fa-files-o icon-wrap"></i> <span class="mini-click-non">Package</span></a>
+                    <ul class="submenu-angle" aria-expanded="false">
+                        <li><a title="floor list" th:href="@{/package/list}"><i class="fa fa-external-link-square sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">List</span></a></li>
+                        <li><a title="Alerts" th:href="@{/package/add}"><i class="fa fa-crop sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Add</span></a></li>
+
+                    </ul>
+                </li>
+                <!-- end organigation -->
+                <li>
+                    <a class="has-arrow" href="#" aria-expanded="false"><i class="fa big-icon fa-table icon-wrap"></i> <span class="mini-click-non">Groupleader</span></a>
+                    <ul class="submenu-angle" aria-expanded="false">
+                        <li><a title="dept List" th:href="@{/groupleader/list}"><i class="fa fa-table sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Departmet List</span></a></li>
+                        <li><a title="Code Editor" th:href="@{/groupleader/add}"><i class="fa fa-th sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Department Add</span></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="has-arrow" href="#" aria-expanded="false"><i class="fa big-icon fa-files-o icon-wrap"></i> <span class="mini-click-non">Pilgrim</span></a>
+                    <ul class="submenu-angle" aria-expanded="false">
+                        <li><a title="degt list" th:href="@{/pilgrim/list}"><i class="fa fa-file sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">List</span></a></li>
+                        <li><a title="Register" th:href="@{/pilgrim/add}"><i class="fa fa-plane sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Add</span></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="has-arrow" href="#" aria-expanded="false"><i
+                            class="fa big-icon fa-flask icon-wrap"></i> <span class="mini-click-non">Passport Info</span></a>
+                    <ul class="submenu-angle" aria-expanded="false">
+                        <li><a title="User List" th:href="@{/passportinfo/list}"><i class="fa big-icon fa-desktop icon-wrap">
+                                                                              <aria-hidden="true"></i> <span
+                                class="mini-sub-pro">List</span></a></li>
+                        <li><a title="User Detail" th:href="@{/passportinfo/add}"><i class="fa fa-heart-o sub-icon-mg"
+                                                                               aria-hidden="true"></i> <span
+                                class="mini-sub-pro">Add</span></a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a class="has-arrow" href="#" aria-expanded="false"><i class="fa big-icon fa-desktop icon-wrap"></i> <span class="mini-click-non">Visa Info</span></a>
+                    <ul class="submenu-angle" aria-expanded="false">
+                        <li><a title="floor list" th:href="@{/visainfo/list}"><i class="fa fa-external-link-square sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">List</span></a></li>
+                        <li><a title="Alerts" th:href="@{/visainfo/add}"><i class="fa fa-crop sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Add</span></a></li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a class="has-arrow" href="#" aria-expanded="false"><i class="fa big-icon fa-table icon-wrap"></i> <span class="mini-click-non">Ticket & Flight</span></a>
+                    <ul class="submenu-angle" aria-expanded="false">
+                        <li><a title="dept List" th:href="@{/ticketflightinfo/list}"><i class="fa fa-table sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro"> List</span></a></li>
+                        <li><a title="Code Editor" th:href="@{/ticketflightinfo/add}"><i class="fa fa-th sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro"> Add</span></a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a class="has-arrow" href="#" aria-expanded="false"><i
+                            class="fa big-icon fa-envelope icon-wrap"></i> <span
+                            class="mini-click-non">Income|Expense </span></a>
+                    <ul class="submenu-angle" aria-expanded="false">
+                        <li><a title="meetinglist" th:href="@{/income/list}"><i class="fa fa-television sub-icon-mg"
+                                                                    aria-hidden="true"></i> <span class="mini-sub-pro">Add Income</span></a>
+                        </li>
+                        <li><a title="View Mail" th:href="@{/expense/add}"><i class="fa fa-inbox sub-icon-mg"
+                                                                             aria-hidden="true"></i> <span
+                                class="mini-sub-pro">Add Expense</span></a></li>
+
+                    </ul>
+                </li>
+
+                <!--<li>
+                    <a class="has-arrow" href="#" aria-expanded="false"><i class="fa big-icon fa-desktop icon-wrap"></i> <span class="mini-click-non">Minor</span></a>
+                    <ul class="submenu-angle" aria-expanded="false">
+                        <li><a title="floor list" th:href="@{/minor/list}"><i class="fa fa-external-link-square sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">List</span></a></li>
+                        <li><a title="Alerts" th:href="@{/minor/add}"><i class="fa fa-crop sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Add</span></a></li>
+
+                    </ul>
+                </li>
+
+                <li>
+                    <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i
+                            class="fa big-icon fa-envelope icon-wrap"></i> <span
+                            class="mini-click-non">Mailbox</span></a>
+                    <ul class="submenu-angle" aria-expanded="false">
+                        <li><a title="Inbox" href="mailbox.html"><i class="fa fa-inbox sub-icon-mg"
+                                                                    aria-hidden="true"></i> <span class="mini-sub-pro">Inbox</span></a>
+                        </li>
+                        <li><a title="View Mail" href="mailbox-view.html"><i class="fa fa-television sub-icon-mg"
+                                                                             aria-hidden="true"></i> <span
+                                class="mini-sub-pro">View Mail</span></a></li>
+                        <li><a title="Compose Mail" href="mailbox-compose.html"><i class="fa fa-paper-plane sub-icon-mg"
+                                                                                   aria-hidden="true"></i> <span
+                                class="mini-sub-pro">Compose Mail</span></a></li>
+                    </ul>
+                </li>
+
+
+                <li id="removable">
+                    <a class="has-arrow" href="#" aria-expanded="false"><i class="fa big-icon fa-files-o icon-wrap"></i>
+                        <span class="mini-click-non">Pages</span></a>
+                    <ul class="submenu-angle" aria-expanded="false">
+                        <li><a title="Login" th:href="@{/login}"><i class="fa fa-hand-rock-o sub-icon-mg"
+                                                                    aria-hidden="true"></i><span class="mini-sub-pro">Login</span></a>
+                        </li>
+                        <li><a title="Register" th:href="@{/register}"><i class="fa fa-plane sub-icon-mg"
+                                                                          aria-hidden="true"></i><span
+                                class="mini-sub-pro">Register</span></a></li>
+                        <li><a title="Lock" href="lock.html"><i class="fa fa-file sub-icon-mg"
+                                                                aria-hidden="true"></i><span
+                                class="mini-sub-pro">Lock</span></a></li>
+                        <li><a title="Password Recovery" href="password-recovery.html"><i
+                                class="fa fa-wheelchair sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Password Recovery</span></a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a title="Landing Page" href="#" aria-expanded="false"><i
+                        class="fa fa-bookmark icon-wrap sub-icon-mg" aria-hidden="true"></i> <span
+                        class="mini-click-non">Landing Page</span></a></li>-->
+            </ul>
+        </nav>
+    </div>
+</nav>
+</body>
+</html>

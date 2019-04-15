@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>User Add</title>
+</head>
+<body>
+<div layout:fragment="custom-content">
+    <div class="basic-form-area mg-tb-15">
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="sparkline12-list">
+                    <div class="sparkline12-hd">
+                        <div class="main-sparkline12-hd">
+                            <h1>Add User</h1>
+                        </div>
+                    </div>
+                    <div class="sparkline12-graph">
+                        <div class="basic-login-form-ad">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="all-form-element-inner">
+                                        <span th:class="succes" th:text="${successMsg}"></span>
+                                        <span th:class="err" th:text="${rejectMsg}"></span>
+
+                                       <form th:object="${user}" th:action="@{/user/edit/}+${id}" th:method="POST" enctype="multipart/form-data">
+                                                &lt;!&ndash; hiden file &ndash;&gt;
+                                                <div class="form-group-inner">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <input type="hidden" th:field="*{id}" th:value="${user.id}" class="form-control"/>
+                                                            <input type="hidden" th:field="*{regiDate}" th:value="${user.regiDate}" class="form-control"/>
+                                                            &lt;!&ndash;<input type="hidden" th:field="*{password}" th:value="${user.password}" class="form-control"/>&ndash;&gt;
+                                                            <input type="hidden" th:field="*{enabled}" th:value="${user.enabled}" class="form-control"/>
+                                                            <input type="hidden" th:field="*{confirmationToken}" th:value="${user.confirmationToken}" class="form-control"/>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            <!--role list -->
+                                            <div class="form-group-inner">
+                                                <div class="row">
+                                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                                                        <label class="login2 pull-right pull-right-pro">Role Name</label>
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                                        <div class="form-select-list">
+                                                            <select th:field="*{roles}"
+                                                                    class="form-control custom-select-value"
+                                                                    multiple="">
+                                                                <option th:each="role : ${rolelist}"
+                                                                        th:value="${role.id}">
+                                                                    <span th:text="${role.roleName}"></span>
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--start first name lasts name -->
+                                            <div class="form-group-inner">
+                                                <div class="row">
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                                        <label class="login2 pull-right pull-right-pro">First
+                                                            Name</label>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                                        <input type="text" th:field="*{firstName}"
+                                                               class="form-control"/>
+                                                        <span th:class="err" th:if="${#fields.hasErrors('firstName')}"
+                                                              th:errors="*{firstName}">firstName Error</span>
+                                                    </div>
+
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                                        <label class="login2 pull-right pull-right-pro">Last
+                                                            Name</label>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                                        <input type="text" th:field="*{lastName}" class="form-control"/>
+                                                        <span th:class="err" th:if="${#fields.hasErrors('lastName')}"
+                                                              th:errors="*{lastName}">lastName Error</span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!--end first name lasts name -->
+                                            <!--start username name and password name -->
+                                            <div class="form-group-inner">
+                                                <div class="row">
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                                        <label class="login2 pull-right pull-right-pro">UserName</label>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                                        <input type="text" th:field="*{userName}"
+                                                               class="form-control"/>
+                                                        <span th:class="err" th:if="${#fields.hasErrors('userName')}"
+                                                              th:errors="*{userName}">userName Error</span>
+                                                    </div>
+
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                                        <label class="login2 pull-right pull-right-pro">Password</label>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                                        <input type="password" th:field="*{password}"
+                                                               class="form-control"/>
+                                                        <span th:class="err" th:if="${#fields.hasErrors('password')}"
+                                                              th:errors="*{password}">password Error</span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!--end username name and password name -->
+                                            <!--start email name and mobail name -->
+                                            <div class="form-group-inner">
+                                                <div class="row">
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                                        <label class="login2 pull-right pull-right-pro">Email</label>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                                        <input type="text" th:field="*{email}" class="form-control"/>
+                                                        <span th:class="err" th:if="${#fields.hasErrors('email')}"
+                                                              th:errors="*{email}">Email Error</span>
+                                                    </div>
+
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                                        <label class="login2 pull-right pull-right-pro">Mobail
+                                                            No</label>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                                        <input type="number" th:field="*{mobile}"
+                                                               class="form-control"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end email name and mobail name -->
+                                            <!--start gender name and birth day name -->
+                                            <div class="form-group-inner">
+                                                <div class="row">
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                                        <label class="login2 pull-right pull-right-pro">Gender</label>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                        Mail <input type="radio" value="mail" th:field="*{gender}"/>
+                                                        Femail <input type="radio" value="femail" th:field="*{gender}"/>
+                                                        Other <input type="radio" value="other" th:field="*{gender}"/>
+                                                    </div>
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                                        <label class="login2 pull-right pull-right-pro">BirthDay</label>
+                                                    </div>
+                                                    <div class="col-lg-14 col-md-14 col-sm-4 col-xs-12">
+                                                        <input type="date" th:field="*{birthDate}"
+                                                               class="form-control"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end gender name and birth name -->
+                                           <div class="form-group-inner">
+                                               <div class="row">
+                                                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                                       <label class="login2 pull-right pull-right-pro">Photo</label>
+                                                   </div>
+                                                   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                                                       <input type="file" name="file"  class="form-control"/>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                            <!--Submit button -->
+                                            <div class="login-btn-inner">
+                                                <div class="row">
+                                                    <div class="col-lg-2"></div>
+                                                    <div class="col-lg-9">
+                                                        <div class="login-horizental cancel-wp pull-left">
+                                                            <button class="btn btn-white" type="submit">Cancel
+                                                            </button>
+                                                            <button class="btn btn-sm btn-primary login-submit-cs"
+                                                                    type="submit">Save User
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

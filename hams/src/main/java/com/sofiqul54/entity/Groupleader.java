@@ -60,7 +60,7 @@ public class Groupleader {
     @Column(unique = true)
     private String district;
 
-    private int commission;
+    private double commission;
 
     private double totalCommission;
 
@@ -172,11 +172,11 @@ public class Groupleader {
         this.district = district;
     }
 
-    public int getCommission() {
+    public double getCommission() {
         return commission;
     }
 
-    public void setCommission(int commission) {
+    public void setCommission(double commission) {
         this.commission = commission;
     }
 
@@ -193,7 +193,7 @@ public class Groupleader {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Groupleader that = (Groupleader) o;
-        return commission == that.commission &&
+        return Double.compare(that.commission, commission) == 0 &&
                 Double.compare(that.totalCommission, totalCommission) == 0 &&
                 Objects.equals(id, that.id) &&
                 Objects.equals(leaderName, that.leaderName) &&

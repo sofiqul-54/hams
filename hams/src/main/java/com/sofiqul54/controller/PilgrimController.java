@@ -47,7 +47,7 @@ public class PilgrimController {
     }
 
     @PostMapping(value = "add")
-    public String userSave(@Valid Pilgrim pilgrim, Groupleader groupleader, BindingResult bindingResult, Model model) {
+    public String userSave(@Valid Pilgrim pilgrim, Groupleader groupleader,GroupLeaderSummary summary, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             return "pilgrims/add";
         } else {
@@ -66,12 +66,14 @@ public class PilgrimController {
                     bookingSummaryRepo.save(bookingSummary);
 
                         /*groupleader Summary*/
-                    int comm = groupleader.getCommission();
+                    double comm = pilgrim.getGroupleader().getCommission();
                     double com = pilgrim.getPpackage().getPrice() * (comm/100);
 
-                    double totalCom = ;
-                    GroupLeaderSummary groupLeaderSummary = new GroupLeaderSummary(this.groupleaderSummaryRepo.findByLeaderName(pilgrim.getGroupleader().getLeaderName()), com,
-                    double totalCommission, Groupleader groupleader, Pilgrim pilgrim);
+
+                    double totalCom = summary.getTotalCommission() + com  ;
+
+                    GroupLeaderSummary groupLeaderSummary = new GroupLeaderSummary(pilgrim.getGroupleader().getLeaderName(), com,
+                    totalCom, pilgrim);
                     groupleaderSummaryRepo.save(groupLeaderSummary);
 
                     model.addAttribute("pilgrim", new Pilgrim());

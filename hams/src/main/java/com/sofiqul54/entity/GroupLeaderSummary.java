@@ -14,10 +14,10 @@ public class GroupLeaderSummary {
     private double commission;
 
     private double totalCommission;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "groupleader_bookingsummary", nullable = false)
-    private Groupleader groupleader;
+//
+//    @OneToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "groupleader_bookingsummary", nullable = false)
+//    private Groupleader groupleader;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pilgrim_bookingsummary", nullable = false)
@@ -27,12 +27,11 @@ public class GroupLeaderSummary {
     public GroupLeaderSummary() {
     }
 
-    public GroupLeaderSummary(String leaderName, double commission, double totalCommission, Groupleader groupleader, Pilgrim pilgrim) {
+    public GroupLeaderSummary(String leaderName, double commission, double totalCommission, Pilgrim pilgrim) {
         this.leaderName = leaderName;
         this.commission = commission;
         this.totalCommission = totalCommission;
-        this.groupleader = groupleader;
-
+        this.pilgrim = pilgrim;
     }
 
     public Long getId() {
@@ -67,16 +66,13 @@ public class GroupLeaderSummary {
         this.totalCommission = totalCommission;
     }
 
-    public Groupleader getGroupleader() {
-        return groupleader;
+    public Pilgrim getPilgrim() {
+        return pilgrim;
     }
 
-    public void setGroupleader(Groupleader groupleader) {
-        this.groupleader = groupleader;
+    public void setPilgrim(Pilgrim pilgrim) {
+        this.pilgrim = pilgrim;
     }
-
-
-
 
 
     @Override
@@ -88,11 +84,11 @@ public class GroupLeaderSummary {
                 Double.compare(that.totalCommission, totalCommission) == 0 &&
                 Objects.equals(id, that.id) &&
                 Objects.equals(leaderName, that.leaderName) &&
-                Objects.equals(groupleader, that.groupleader);
+                Objects.equals(pilgrim, that.pilgrim);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, leaderName, commission, totalCommission, groupleader);
+        return Objects.hash(id, leaderName, commission, totalCommission, pilgrim);
     }
 }

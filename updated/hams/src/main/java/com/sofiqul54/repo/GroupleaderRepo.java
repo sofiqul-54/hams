@@ -15,7 +15,7 @@ public interface GroupleaderRepo extends JpaRepository<Groupleader, Long> {
     boolean existsByEmail(String email);
     Optional<Groupleader> findByLeaderName(String leaderNamed);
 
-
+    Groupleader findByCommission(Double commission);
 
     boolean existsByLeaderName(String leaderName);
 

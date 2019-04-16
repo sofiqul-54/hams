@@ -2,8 +2,6 @@ package com.sofiqul54.controller;
 
 
 import com.sofiqul54.entity.BookingSummary;
-import com.sofiqul54.entity.GroupLeaderSummary;
-import com.sofiqul54.entity.Groupleader;
 import com.sofiqul54.entity.Pilgrim;
 import com.sofiqul54.repo.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +19,7 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping(value = "/pilgrim/")
-public class PilgrimController {
+public class PilgrimController0 {
     @Autowired
     private ImageOptimizer imageOptimizer;
 
@@ -33,11 +31,8 @@ public class PilgrimController {
 
     @Autowired
     private GroupleaderRepo groupleaderRepo;
-    @Autowired
-    private BookingSummaryRepo bookingSummaryRepo;
-
-    @Autowired
-    private GroupleaderSummaryRepo groupleaderSummaryRepo;
+@Autowired
+private BookingSummaryRepo bookingSummaryRepo;
 
     @GetMapping(value = "add")
     public String viewAdd(Pilgrim pilgrim, Model model) {
@@ -47,7 +42,7 @@ public class PilgrimController {
     }
 
     @PostMapping(value = "add")
-    public String userSave(@Valid Pilgrim pilgrim, Groupleader groupleader, GroupLeaderSummary summary, BindingResult bindingResult, Model model) {
+    public String userSave(@Valid Pilgrim pilgrim, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             return "pilgrims/add";
         } else {
@@ -58,24 +53,11 @@ public class PilgrimController {
                 } else {
                     pilgrim.setRegiDate(new Date());
                     this.repo.save(pilgrim);
-                        /*booking Summary*/
-                    double due = pilgrim.getPpackage().getPrice() - pilgrim.getBookingAmount();
-                    double aol = pilgrim.getBookingAmount();
+                    double due= pilgrim.getPpackage().getPrice() - pilgrim.getBookingAmount();
+                    double aol= pilgrim.getBookingAmount();
 
-                    BookingSummary bookingSummary = new BookingSummary(pilgrim.getPpackage().getPrice(), pilgrim.getBookingAmount(), due, pilgrim, pilgrim.getPpackage());
+                    BookingSummary bookingSummary=new BookingSummary(pilgrim.getPpackage().getPrice(), pilgrim.getBookingAmount(), due, pilgrim,pilgrim.getPpackage());
                     bookingSummaryRepo.save(bookingSummary);
-
-                        /*groupleader Summary*/
-                    double comm = pilgrim.getGroupleader().getCommission();
-                    double com = pilgrim.getPpackage().getPrice() * (comm/100);
-
-
-                    double totalCom = summary.getTotalCommission() + com  ;
-
-                    GroupLeaderSummary groupLeaderSummary = new GroupLeaderSummary(pilgrim.getGroupleader().getLeaderName(), com,
-                    totalCom, pilgrim);
-                    groupleaderSummaryRepo.save(groupLeaderSummary);
-
                     model.addAttribute("pilgrim", new Pilgrim());
                     model.addAttribute("successMsg", "Congratulations! Data save sucessfully");
                 }

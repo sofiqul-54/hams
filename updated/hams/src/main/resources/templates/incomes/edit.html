@@ -26,7 +26,7 @@
                                     <div class="all-form-element-inner">
                                         <!--<span th:class="succes" th:text="${successMsg}"></span>-->
                                         <span th:class="err" th:text="${rejectMsg}"></span>
-                                        <form th:object="${package}" th:action="@{/package/edit/}+${id}" th:method="POST">
+                                        <form th:object="${package}" th:action="@{/pilgrim/edit/}+${id}" th:method="POST">
                                             <div class="form-group row">
                                                 <label for="name" class="col-sm-3 col-form-label form-label">Package Name</label>
                                                 <div class="col-sm-9">

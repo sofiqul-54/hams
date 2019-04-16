@@ -47,6 +47,7 @@ public class PassportInfoController {
             model.addAttribute("successMsg", "Successfully Saved!");
         }
         model.addAttribute("pilgrimlist", this.pilgrimRepo.findAll());
+        model.addAttribute("passportinfo", new PassportInfo());
         return "passports/add";
     }
 

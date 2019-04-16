@@ -70,7 +70,7 @@ public class PilgrimController {
                     double com = pilgrim.getPpackage().getPrice() * (comm/100);
 
 
-                    double totalCom = summary.getTotalCommission() + com  ;
+                    double totalCom = summary.getPilgrim().getGroupleader().getTotalCommission() + com  ;
 
                     GroupLeaderSummary groupLeaderSummary = new GroupLeaderSummary(pilgrim.getGroupleader().getLeaderName(), com,
                     totalCom, pilgrim);

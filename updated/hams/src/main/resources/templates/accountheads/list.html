@@ -18,7 +18,7 @@
                         <div class="sparkline13-list">
                             <div class="sparkline13-hd">
                                 <div class="main-sparkline13-hd">
-                                    <h1>Role  <span class="table-project-n">List</span></h1>
+                                    <h1>Account Head  <span class="table-project-n">List</span></h1>
                                 </div>
                             </div>
                             <div class="sparkline13-graph">
@@ -36,24 +36,24 @@
                                         <tr class="align-center">
                                             <th data-field="state" data-checkbox="true"></th>
                                             <th data-field="id">ID</th>
-                                            <th data-field="name">Package Name</th>
-                                            <th data-field="price">Value</th>
+                                            <th data-field="name">Account Name</th>
+                                            <th data-field="price">Description</th>
                                             <th data-field="edit">Edit</th>
                                             <th data-field="delete">Delete</th>
                                             <th data-field="action">Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr th:each="package:${list}">
+                                        <tr th:each="achead:${list}">
                                             <td> </td>
-                                            <td th:text="${package.id}"></td>
-                                            <td th:text="${package.name}"></td>
-                                            <td th:text="${package.price}"></td>
+                                            <td th:text="${achead.id}"></td>
+                                            <td th:text="${achead.accountname}"></td>
+                                            <td th:text="${achead.description}"></td>
                                             <td>
-                                                <a th:href="@{'/package/edit/'+${package.id}}" class="btn btn-info">Edit</a>
+                                                <a th:href="@{'/achead/edit/'+${achead.id}}" class="btn btn-info">Edit</a>
                                             </td>
                                             <td>
-                                                <a th:href="@{'/package/del/'+${package.id}}" class="btn btn-danger">Del</a>
+                                                <a th:href="@{'/achead/del/'+${achead.id}}" class="btn btn-danger">Del</a>
                                             </td>
                                             <td class="datatable-ct"><i class="fa fa-check"></i>
                                             </td>

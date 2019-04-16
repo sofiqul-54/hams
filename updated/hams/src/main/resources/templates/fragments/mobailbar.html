@@ -17,21 +17,14 @@
                         <ul class="mobile-menu-nav">
                             <li><a data-toggle="collapse" data-target="#Charts" href="#">Home <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                 <ul class="collapse dropdown-header-top">
-                                    <li><a href="../index.html">Dashboard v.1</a></li>
-                                    <li><a href="index-1.html">Dashboard v.2</a></li>
-                                    <li><a href="index-3.html">Dashboard v.3</a></li>
-                                    <li><a href="product-list.html">Product List</a></li>
-                                    <li><a href="product-edit.html">Product Edit</a></li>
-                                    <li><a href="product-detail.html">Product Detail</a></li>
-                                    <li><a href="product-cart.html">Product Cart</a></li>
-                                    <li><a href="product-payment.html">Product Payment</a></li>
-                                    <li><a href="analytics.html">Analytics</a></li>
-                                    <li><a href="widgets.html">Widgets</a></li>
+                                    <li><a th:href="@{/}">Dashboard</a></li>
                                 </ul>
                             </li>
-                            <li><a data-toggle="collapse" data-target="#demo" href="#">Mailbox <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                            <li><a data-toggle="collapse" data-target="#demo" href="#">Role <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                 <ul id="demo" class="collapse dropdown-header-top">
-                                    <li><a href="mailbox.html">Inbox</a>
+                                    <li><a th:href="@{/role/add}">Add Role</a>
+                                    </li>
+                                    <li><a th:href="@{/role/list}">Role List</a>
                                     </li>
                                     <li><a href="mailbox-view.html">View Mail</a>
                                     </li>

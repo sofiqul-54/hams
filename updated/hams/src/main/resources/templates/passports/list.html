@@ -5,7 +5,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
 <head>
     <meta charset="UTF-8">
-    <title>role :::list</title>
+    <title>Passport List|HAMS</title>
 
 </head>
 <body>
@@ -18,7 +18,7 @@
                         <div class="sparkline13-list">
                             <div class="sparkline13-hd">
                                 <div class="main-sparkline13-hd">
-                                    <h1>Role  <span class="table-project-n">List</span></h1>
+                                    <h1>Passport  <span class="table-project-n">List</span></h1>
                                 </div>
                             </div>
                             <div class="sparkline13-graph">
@@ -36,29 +36,35 @@
                                         <tr class="align-center">
                                             <th data-field="state" data-checkbox="true"></th>
                                             <th data-field="id">ID</th>
-                                            <th data-field="name">Package Name</th>
-                                            <th data-field="price">Value</th>
+
+                                            <th data-field="pilg">Pilgrim Id</th>
+                                            <th data-field="passno">Passport No</th>
+                                            <th data-field="issu">Issue Date</th>
+                                            <th data-field="exp">Exp. Date</th>
+                                            <th data-field="dip">DIP</th>
                                             <th data-field="edit">Edit</th>
                                             <th data-field="delete">Delete</th>
                                             <th data-field="action">Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr th:each="package:${list}">
+                                        <tr th:each="pass:${list}">
                                             <td> </td>
-                                            <td th:text="${package.id}"></td>
-                                            <td th:text="${package.name}"></td>
-                                            <td th:text="${package.price}"></td>
+                                            <td th:text="${pass.id}"></td>
+                                            <td th:text="${pass.pilgrim.name}"></td>
+                                            <td th:text="${pass.passportNo}"></td>
+                                            <td th:text="${pass.issueDate}"></td>
+                                            <td th:text="${pass.expDate}"></td>
+                                            <td th:text="${pass.dip}"></td>
                                             <td>
-                                                <a th:href="@{'/package/edit/'+${package.id}}" class="btn btn-info">Edit</a>
+                                                <a th:href="@{'/passportinfo/edit/'+${pass.id}}" class="btn btn-info">Edit</a>
                                             </td>
                                             <td>
-                                                <a th:href="@{'/package/del/'+${package.id}}" class="btn btn-danger">Del</a>
+                                                <a th:href="@{'/passportinfo/del/'+${pass.id}}" class="btn btn-danger">Del</a>
                                             </td>
                                             <td class="datatable-ct"><i class="fa fa-check"></i>
                                             </td>
                                         </tr>
-
                                         </tbody>
                                     </table>
                                 </div>

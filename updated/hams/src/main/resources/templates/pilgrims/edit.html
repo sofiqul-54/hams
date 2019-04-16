@@ -24,9 +24,8 @@
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="all-form-element-inner">
-                                        <span th:class="succes" th:text="${successMsg}"></span>
                                         <span th:class="err" th:text="${rejectMsg}"></span>
-                                        <form th:object="${pilgrim}" th:action="@{/pilgrim/edit}+${id}" th:method="POST">
+                                        <form th:object="${pilgrim}" th:action="@{/pilgrim/edit/}+${id}" th:method="POST">
                                             <div class="form-group row">
                                                 <label for="ppackage" class="col-sm-3 col-form-label form-label">Package</label>
                                                 <div class="col-sm-9">

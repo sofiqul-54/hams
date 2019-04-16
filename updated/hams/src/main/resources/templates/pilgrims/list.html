@@ -5,71 +5,113 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
 <head>
     <meta charset="UTF-8">
-    <title>Package List|HAMS</title>
+    <title>pilgrim List|HAMS</title>
 
 </head>
 <body>
 <div layout:fragment="custom-content">
 
-        <div class="data-table-area mg-tb-15">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="sparkline13-list">
-                            <div class="sparkline13-hd">
-                                <div class="main-sparkline13-hd">
-                                    <h1>Package  <span class="table-project-n">List</span></h1>
-                                </div>
+    <div class="data-table-area mg-tb-15">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="sparkline13-list">
+                        <div class="sparkline13-hd">
+                            <div class="main-sparkline13-hd">
+                                <h1>Pilgrim <span class="table-project-n">List</span></h1>
                             </div>
-                            <div class="sparkline13-graph">
-                                <div class="datatable-dashv1-list custom-datatable-overright">
-                                    <div id="toolbar">
-                                        <select class="form-control">
-                                            <option value="">Export Basic</option>
-                                            <option value="all">Export All</option>
-                                            <option value="selected">Export Selected</option>
-                                        </select>
-                                    </div>
-                                    <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
-                                           data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
-                                        <thead>
-                                        <tr class="align-center">
-                                            <th data-field="state" data-checkbox="true"></th>
-                                            <th data-field="id">ID</th>
-
-
-                                            <th data-field="name">Package Name</th>
-                                            <th data-field="edit">Value</th>
-                                            <th data-field="edit">Edit</th>
-                                            <th data-field="delete">Delete</th>
-                                            <th data-field="action">Action</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr th:each="role:${list}">
-                                            <td></td>
-                                            <td th:text="${role.id}"></td>
-                                            <td th:text="${role.name}"></td>
-                                            <td th:text="${role.price}"></td>
-                                            <td>
-                                                <a th:href="@{'/role/edit/'+${role.id}}" class="btn btn-info">Edit</a>
-                                            </td>
-                                            <td>
-                                                <a th:href="@{'/role/del/'+${role.id}}" class="btn btn-danger">Del</a>
-                                            </td>
-                                            <td class="datatable-ct"><i class="fa fa-check"></i>
-                                            </td>
-                                        </tr>
-
-                                        </tbody>
-                                    </table>
+                        </div>
+                        <div class="sparkline13-graph">
+                            <div class="datatable-dashv1-list custom-datatable-overright">
+                                <div id="toolbar">
+                                    <select class="form-control">
+                                        <option value="">Export Basic</option>
+                                        <option value="all">Export All</option>
+                                        <option value="selected">Export Selected</option>
+                                    </select>
                                 </div>
+                                <table id="table" data-toggle="table" data-pagination="true" data-search="true"
+                                       data-show-columns="true" data-show-pagination-switch="true"
+                                       data-show-refresh="true" data-key-events="true" data-show-toggle="true"
+                                       data-resizable="true" data-cookie="true"
+                                       data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true"
+                                       data-toolbar="#toolbar">
+                                    <thead>
+                                    <tr class="align-center">
+                                        <th data-field="state" data-checkbox="true"></th>
+                                        <th data-field="id">ID</th>
+                                        <th scope="col">Pilgrim No</th>
+                                        <th scope="col">Pilgrim Name</th>
+                                        <th scope="col">Father Name</th>
+                                        <th scope="col">Mother Name</th>
+                                        <th scope="col">Gender</th>
+                                        <th scope="col">Birthdate</th>
+                                        <th scope="col">NID</th>
+                                        <th scope="col">Email</th>
+                                        <!-- <th scope="col">Marital Status</th>-->
+                                        <th scope="col">Spouse Name</th>
+                                        <th scope="col">Occupation</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">Home District</th>
+                                        <th scope="col">Booking Money</th>
+                                        <th scope="col">Reg. Date</th>
+                                        <th scope="col">LM. Date</th>
+                                        <th scope="col">Package Name</th>
+                                        <th scope="col">GroupLeader</th>
+                                        <th data-field="edit">Edit</th>
+                                        <th data-field="delete">Delete</th>
+                                        <th data-field="action">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="pilgrim:${list}">
+                                        <td></td>
+                                        <td th:text="${pilgrim.id}"></td>
+                                        <td th:text="${pilgrim.pilgrimNumber}"></td>
+                                        <td th:text="${pilgrim.name}"></td>
+                                        <td th:text="${pilgrim.fatherName}"></td>
+                                        <td th:text="${pilgrim.motherName}"></td>
+                                        <td th:text="${pilgrim.gender}"></td>
+                                        <td th:text="${pilgrim.birthDate}"></td>
+                                        <td th:text="${pilgrim.nid}"></td>
+                                        <td th:text="${pilgrim.email}"></td>
+                                        <!-- <td th:text="${pilgrim.maritalStatus}"></td>-->
+                                        <td th:text="${pilgrim.spouseName}"></td>
+                                        <td th:text="${pilgrim.occupation}"></td>
+                                        <td th:text="${pilgrim.address}"></td>
+                                        <td th:text="${pilgrim.district}"></td>
+                                        <td th:text="${pilgrim.bookingAmount}"></td>
+                                        <td th:text="${pilgrim.regiDate}"></td>
+                                        <td th:text="${pilgrim.lastModifiedDate}"></td>
+                                        <td>
+                       <span th:each="p : ${pilgrim.ppackage}">
+                           <span th:text="${p.name}"></span>
+                       </span>
+                                        </td>
+                                        <td>
+                       <span th:each="g : ${pilgrim.groupleader}">
+                           <span th:text="${g.leaderName}"></span>
+                       </span>
+                                        </td>
+                                        <td>
+                                            <a th:href="@{'/pilgrim/edit/'+${pilgrim.id}}"  class="btn btn-info">Edit</a>
+                                        </td>
+                                        <td>
+                                            <a th:href="@{'/pilgrim/del/'+${pilgrim.id}}" class="btn btn-danger">Del</a>
+                                        </td>
+                                        <td class="datatable-ct"><i class="fa fa-check"></i>
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
 
 </div>

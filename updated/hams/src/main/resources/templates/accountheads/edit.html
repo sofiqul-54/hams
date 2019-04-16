@@ -5,7 +5,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
 <head>
     <meta charset="UTF-8">
-    <title>Packace Add</title>
+    <title>AccountHead Edit</title>
 </head>
 <body>
 <div layout:fragment="custom-content">
@@ -16,7 +16,7 @@
                 <div class="sparkline12-list">
                     <div class="sparkline12-hd">
                         <div class="main-sparkline12-hd">
-                            <h1>Add Packace : </h1>
+                            <h1>Edit AccountHead : </h1>
                         </div>
                     </div>
                     <div class="sparkline12-graph">
@@ -24,21 +24,19 @@
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="all-form-element-inner">
-                                        <!--<span th:class="succes" th:text="${successMsg}"></span>-->
                                         <span th:class="err" th:text="${rejectMsg}"></span>
-                                        <form th:object="${package}" th:action="@{/package/edit/}+${id}" th:method="POST">
+                                        <form th:object="${accountheadinfo}" th:action="@{/achead/edit/}+${id}" th:method="POST">
                                             <div class="form-group row">
-                                                <label for="name" class="col-sm-3 col-form-label form-label">Package Name</label>
+                                                <label for="accountname" class="col-sm-3 col-form-label form-label">Account Name</label>
                                                 <div class="col-sm-9">
-
-                                                    <input type="text" class="form-control" th:field="*{name}"  id="name" placeholder="Package Name">
+                                                    <input type="text" class="form-control" th:field="*{accountname}"  id="accountname" placeholder="Account Name">
                                                 </div>
                                             </div>
-                                            <div class="form-group row">
-                                                <label for="price" class="col-sm-3 col-form-label form-label">Package Value</label>
-                                                <div class="col-sm-9">
 
-                                                    <input type="text" class="form-control" th:field="*{price}"  id="price" placeholder="Package Value">
+                                            <div class="form-group row">
+                                                <label for="description" class="col-sm-3 col-form-label form-label">Description</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" th:field="*{description}"  id="description" placeholder="Description">
                                                 </div>
                                             </div>
 

@@ -64,7 +64,7 @@ public class GroupleaderController {
         if (bindingResult.hasErrors()) {
             return "groupleaders/edit";
         }
-        Optional<Groupleader> rol = this.repo.findByLeaderName(groupleader.getEmail());
+        Optional<Groupleader> rol = this.repo.findByLeaderName(groupleader.getLeaderName());
         if (rol.get().getId() != id) {
             model.addAttribute("rejectMsg", "Already Have This Entry");
             return "groupleaders/edit";

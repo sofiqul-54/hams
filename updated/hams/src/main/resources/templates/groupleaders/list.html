@@ -55,6 +55,7 @@
                                         <tbody>
                                         <tr th:each="pilgrim:${list}">
                                             <td></td>
+                                            <td th:text="${pilgrim.id}"></td>
                                             <td th:text="${pilgrim.leaderName}"></td>
                                             <td th:text="${pilgrim.gender}"></td>
                                             <td th:text="${pilgrim.nid}"></td>
@@ -68,10 +69,10 @@
                                             <td th:text="${pilgrim.expDate}"></td>
                                             <td th:text="${pilgrim.regiDate}"></td>
                                             <td>
-                                                <a th:href="@{'/role/edit/'+${role.id}}" class="btn btn-info">Edit</a>
+                                                <a th:href="@{'/groupleader/edit/'+${pilgrim.id}}" class="btn btn-info">Edit</a>
                                             </td>
                                             <td>
-                                                <a th:href="@{'/role/del/'+${role.id}}" class="btn btn-danger">Del</a>
+                                                <a th:href="@{'/groupleader/del/'+${pilgrim.id}}" class="btn btn-danger">Del</a>
                                             </td>
                                             <td class="datatable-ct"><i class="fa fa-check"></i>
                                             </td>

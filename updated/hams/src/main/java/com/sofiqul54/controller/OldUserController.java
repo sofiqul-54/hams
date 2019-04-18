@@ -44,7 +44,7 @@ private PasswordEncoder passwordEncoder;
         User user = new User("Sofiqul", "Islam", "saadmin", "sadmin@hams.com", new Date(), true, UUID.randomUUID().toString(),roles);
         user.setPassword(passwordEncoder.encode("123456789"));
         repo.save(user);
-      return "success";
+      return "login";
     }
 
     @GetMapping(value = "/register")

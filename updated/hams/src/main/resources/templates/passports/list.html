@@ -37,8 +37,10 @@
                                             <th data-field="state" data-checkbox="true"></th>
                                             <th data-field="id">ID</th>
 
-                                            <th data-field="pilg">Pilgrim Id</th>
+                                           <!-- <th data-field="pilg">Pilgrim Name</th>-->
+                                            <th data-field="pilg">Pilgrim No</th>
                                             <th data-field="passno">Passport No</th>
+
                                             <th data-field="issu">Issue Date</th>
                                             <th data-field="exp">Exp. Date</th>
                                             <th data-field="dip">DIP</th>
@@ -51,8 +53,10 @@
                                         <tr th:each="pass:${list}">
                                             <td> </td>
                                             <td th:text="${pass.id}"></td>
-                                            <td th:text="${pass.pilgrim.name}"></td>
+                                            <!--<td th:text="${pass.pilgrim.name}"></td>-->
+                                            <td th:text="${pass.pilgrim.pilgrimNumber}"></td>
                                             <td th:text="${pass.passportNo}"></td>
+
                                             <td th:text="${pass.issueDate}"></td>
                                             <td th:text="${pass.expDate}"></td>
                                             <td th:text="${pass.dip}"></td>

@@ -1,7 +1,10 @@
 package com.sofiqul54.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name = "visa_info")
@@ -9,14 +12,22 @@ public class VisaInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date applyDate;
+
     @Column(unique = true, nullable = false)
     private String visaNo;
+
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date vIssueDate;
+
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date vValidityDate;
+
     private String status;
 
     @OneToOne
@@ -77,5 +88,24 @@ public class VisaInfo {
 
     public void setPilgrim(Pilgrim pilgrim) {
         this.pilgrim = pilgrim;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        VisaInfo visaInfo = (VisaInfo) o;
+        return Objects.equals(id, visaInfo.id) &&
+                Objects.equals(applyDate, visaInfo.applyDate) &&
+                Objects.equals(visaNo, visaInfo.visaNo) &&
+                Objects.equals(vIssueDate, visaInfo.vIssueDate) &&
+                Objects.equals(vValidityDate, visaInfo.vValidityDate) &&
+                Objects.equals(status, visaInfo.status) &&
+                Objects.equals(pilgrim, visaInfo.pilgrim);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, applyDate, visaNo, vIssueDate, vValidityDate, status, pilgrim);
     }
 }

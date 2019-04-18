@@ -5,7 +5,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
 <head>
     <meta charset="UTF-8">
-    <title>Groupleader List|HAMS</title>
+    <title>Groupleader :::list</title>
 
 </head>
 <body>
@@ -36,43 +36,44 @@
                                         <tr class="align-center">
                                             <th data-field="state" data-checkbox="true"></th>
                                             <th data-field="id">ID</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Gender</th>
-                                            <th scope="col">NID</th>
-                                            <th scope="col">Birth Date</th>
-                                            <th scope="col">Mobile</th>
-                                            <th scope="col">Email</th>
-                                            <th scope="col">Address</th>
-                                            <th scope="col">Home District</th>
-                                            <th scope="col">Passport No</th>
-                                            <th scope="col">Passport Issue Date</th>
-                                            <th scope="col">Passport Exp. Date</th>
-                                            <th scope="col">Reg. Date</th>
+                                            <th data-field="name">Name</th>
+                                            <th data-field="gender">Gender</th>
+                                            <th data-field="nid">NID</th>
+                                            <th data-field="birth">Birth Date</th>
+                                            <th data-field="mobile">Mobile</th>
+                                            <th data-field="email">Email</th>
+                                           <!-- <th data-field="address">Address</th>-->
+                                            <th data-field="home">Home District</th>
+                                            <th data-field="pass">Passport No</th>
+                                            <th data-field="issue">Passport Issue Date</th>
+                                            <th data-field="exp">Passport Exp. Date</th>
+                                            <th data-field="reg">Reg. Date</th>
+                                            <th data-field="edit">Edit</th>
                                             <th data-field="delete">Delete</th>
                                             <th data-field="action">Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr th:each="pilgrim:${list}">
-                                            <td></td>
-                                            <td th:text="${pilgrim.id}"></td>
-                                            <td th:text="${pilgrim.leaderName}"></td>
-                                            <td th:text="${pilgrim.gender}"></td>
-                                            <td th:text="${pilgrim.nid}"></td>
-                                            <td th:text="${pilgrim.birthDate}"></td>
-                                            <td th:text="${pilgrim.mobile}"></td>
-                                            <td th:text="${pilgrim.email}"></td>
-                                            <td th:text="${pilgrim.address}"></td>
-                                            <td th:text="${pilgrim.district}"></td>
-                                            <td th:text="${pilgrim.passportNo}"></td>
-                                            <td th:text="${pilgrim.issuDate}"></td>
-                                            <td th:text="${pilgrim.expDate}"></td>
-                                            <td th:text="${pilgrim.regiDate}"></td>
+                                        <tr th:each="leader:${list}">
+                                            <td> </td>
+                                            <td th:text="${leader.id}"></td>
+                                            <td th:text="${leader.leaderName}"></td>
+                                            <td th:text="${leader.gender}"></td>
+                                            <td th:text="${leader.nid}"></td>
+                                            <td th:text="${leader.birthDate}"></td>
+                                            <td th:text="${leader.mobile}"></td>
+                                            <td th:text="${leader.email}"></td>
+                                            <!--<td th:text="${leader.address}"></td>-->
+                                            <td th:text="${leader.district}"></td>
+                                            <td th:text="${leader.district}"></td>
+                                            <td th:text="${leader.issuDate}"></td>
+                                            <td th:text="${leader.expDate}"></td>
+                                            <td th:text="${leader.regiDate}"></td>
                                             <td>
-                                                <a th:href="@{'/groupleader/edit/'+${pilgrim.id}}" class="btn btn-info">Edit</a>
+                                                <a th:href="@{'/groupleader/edit/'+${leader.id}}" class="btn btn-info">Edit</a>
                                             </td>
                                             <td>
-                                                <a th:href="@{'/groupleader/del/'+${pilgrim.id}}" class="btn btn-danger">Del</a>
+                                                <a th:href="@{'/groupleader/del/'+${leader.id}}" class="btn btn-danger">Del</a>
                                             </td>
                                             <td class="datatable-ct"><i class="fa fa-check"></i>
                                             </td>

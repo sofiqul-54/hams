@@ -26,112 +26,77 @@
                                     </li>
                                     <li><a th:href="@{/role/list}">Role List</a>
                                     </li>
-                                    <li><a href="mailbox-view.html">View Mail</a>
-                                    </li>
-                                    <li><a href="mailbox-compose.html">Compose Mail</a>
-                                    </li>
                                 </ul>
                             </li>
-                            <li><a data-toggle="collapse" data-target="#others" href="#">Miscellaneous <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                            <li><a data-toggle="collapse" data-target="#others" href="#">User<span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                 <ul id="others" class="collapse dropdown-header-top">
-                                    <li><a href="file-manager.html">File Manager</a></li>
-                                    <li><a href="contacts.html">Contacts Client</a></li>
-                                    <li><a href="projects.html">Project</a></li>
-                                    <li><a href="project-details.html">Project Details</a></li>
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="blog-details.html">Blog Details</a></li>
-                                    <li><a href="404.html">404 Page</a></li>
-                                    <li><a href="500.html">500 Page</a></li>
+                                    <li><a th:href="@{/user/add}">Add User</a>
+                                    </li>
+                                    <li><a th:href="@{/user/list}">User List</a>
+                                    </li>
                                 </ul>
                             </li>
-                            <li><a data-toggle="collapse" data-target="#Miscellaneousmob" href="#">Interface <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                            <li><a data-toggle="collapse" data-target="#Miscellaneousmob" href="#">Package <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                 <ul id="Miscellaneousmob" class="collapse dropdown-header-top">
-                                    <li><a href="google-map.html">Google Map</a>
+                                    <li><a th:href="@{/package/add}">Add Package</a>
                                     </li>
-                                    <li><a href="data-maps.html">Data Maps</a>
-                                    </li>
-                                    <li><a href="pdf-viewer.html">Pdf Viewer</a>
-                                    </li>
-                                    <li><a href="x-editable.html">X-Editable</a>
-                                    </li>
-                                    <li><a href="code-editor.html">Code Editor</a>
-                                    </li>
-                                    <li><a href="tree-view.html">Tree View</a>
-                                    </li>
-                                    <li><a href="preloader.html">Preloader</a>
-                                    </li>
-                                    <li><a href="images-cropper.html">Images Cropper</a>
+                                    <li><a th:href="@{/package/list}">Package List</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li><a data-toggle="collapse" data-target="#Chartsmob" href="#">Charts <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                            <li><a data-toggle="collapse" data-target="#Chartsmob" href="#">Groupleader <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                 <ul id="Chartsmob" class="collapse dropdown-header-top">
-                                    <li><a href="bar-charts.html">Bar Charts</a>
+                                    <li><a th:href="@{/groupleader/add}">Add Groupleader</a>
                                     </li>
-                                    <li><a href="line-charts.html">Line Charts</a>
-                                    </li>
-                                    <li><a href="area-charts.html">Area Charts</a>
-                                    </li>
-                                    <li><a href="rounded-chart.html">Rounded Charts</a>
-                                    </li>
-                                    <li><a href="c3.html">C3 Charts</a>
-                                    </li>
-                                    <li><a href="sparkline.html">Sparkline Charts</a>
-                                    </li>
-                                    <li><a href="peity.html">Peity Charts</a>
+                                    <li><a th:href="@{/groupleader/list}">Groupleader List</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li><a data-toggle="collapse" data-target="#Tablesmob" href="#">Tables <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                            <li><a data-toggle="collapse" data-target="#Tablesmob" href="#">Pilgrim <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                 <ul id="Tablesmob" class="collapse dropdown-header-top">
-                                    <li><a href="static-table.html">Static Table</a>
+                                    <li><a th:href="@{/pilgrim/add}">Add Package</a>
                                     </li>
-                                    <li><a href="data-table.html">Data Table</a>
+                                    <li><a th:href="@{/pilgrim/list}">Package List</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li><a data-toggle="collapse" data-target="#formsmob" href="#">Forms <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                            <li><a data-toggle="collapse" data-target="#formsmob" href="#">Passport Info <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                 <ul id="formsmob" class="collapse dropdown-header-top">
-                                    <li><a href="basic-form-element.html">Basic Form Elements</a>
+                                    <li><a th:href="@{/passportinfo/add}">Add Passport Info</a>
                                     </li>
-                                    <li><a href="advance-form-element.html">Advanced Form Elements</a>
-                                    </li>
-                                    <li><a href="password-meter.html">Password Meter</a>
-                                    </li>
-                                    <li><a href="multi-upload.html">Multi Upload</a>
-                                    </li>
-                                    <li><a href="tinymc.html">Text Editor</a>
-                                    </li>
-                                    <li><a href="dual-list-box.html">Dual List Box</a>
+                                    <li><a th:href="@{/passportinfo/list}">Passport Info List</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li><a data-toggle="collapse" data-target="#Appviewsmob" href="#">App views <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                            <li><a data-toggle="collapse" data-target="#Appviewsmob" href="#">Visa Info <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                 <ul id="Appviewsmob" class="collapse dropdown-header-top">
-                                    <li><a href="basic-form-element.html">Basic Form Elements</a>
+                                    <li><a th:href="@{/visainfo/add}">Add Visa Info</a>
                                     </li>
-                                    <li><a href="advance-form-element.html">Advanced Form Elements</a>
-                                    </li>
-                                    <li><a href="password-meter.html">Password Meter</a>
-                                    </li>
-                                    <li><a href="multi-upload.html">Multi Upload</a>
-                                    </li>
-                                    <li><a href="tinymc.html">Text Editor</a>
-                                    </li>
-                                    <li><a href="dual-list-box.html">Dual List Box</a>
+                                    <li><a th:href="@{/visainfo/list}">Visa Info List</a>
                                     </li>
                                 </ul>
                             </li>
-                            <li><a data-toggle="collapse" data-target="#Pagemob" href="#">Pages <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                            <li><a data-toggle="collapse" data-target="#Pagemob" href="#">Ticket & Flight Info <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                 <ul id="Pagemob" class="collapse dropdown-header-top">
-                                    <li><a href="login.html">Login</a>
+                                    <li><a th:href="@{/ticketflightinfo/add}">Add TicketFlight Info</a>
                                     </li>
-                                    <li><a href="register.html">Register</a>
+                                    <li><a th:href="@{/ticketflightinfo/list}">TicketFlight Info List</a>
                                     </li>
-                                    <li><a href="lock.html">Lock</a>
+                                </ul>
+                            </li>
+                            <li><a data-toggle="collapse" data-target="#Income" href="#">Income <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                <ul id="Income" class="collapse dropdown-header-top">
+                                    <li><a th:href="@{/achead/add}">Add Account Head</a>
                                     </li>
-                                    <li><a href="password-recovery.html">Password Recovery</a>
+                                    <li><a th:href="@{/income/add}">Add Income</a>
                                     </li>
+                                </ul>
+                            </li>
+                            <li><a data-toggle="collapse" data-target="#Summary" href="#">Summary <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
+                                <ul id="Summary" class="collapse dropdown-header-top">
+                                    <li><a th:href="@{/pilgrim/summary}">Pilgrim Summary</a>
+                                    </li>
+
                                 </ul>
                             </li>
                         </ul>
@@ -141,6 +106,6 @@
         </div>
     </div>
 </div>
-<!-- Mobile Menu end -->
+<!-- Mobile Menu end income-->
 </body>
 </html>

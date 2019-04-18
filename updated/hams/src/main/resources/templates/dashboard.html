@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="custom-content">
+    <!--<div class="widget-program-box mg-tb-30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div class="hpanel responsive-mg-b-30">
+                        <div class="panel-body">
+                            <div class="text-center content-box">
+                                <h2 class="m-b-xs">Box title</h2>
+                                <p class="font-bold text-success">Lorem ipsum</p>
+                                <div class="m icon-box">
+                                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                                </div>
+                                <p class="small mg-t-box">
+                                    Lorem Ipsum passages and more recently with desktop published software like Aldus PageMaker including versions of Lorem.
+                                </p>
+                                <button class="btn btn-success btn-sm">Action button</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div class="hpanel responsive-mg-b-30">
+                        <div class="panel-body">
+                            <div class="text-center content-box">
+                                <h2 class="m-b-xs">Box title</h2>
+                                <p class="font-bold text-info">Lorem ipsum</p>
+                                <div class="m icon-box">
+                                    <i class="fa fa-pie-chart" aria-hidden="true"></i>
+                                </div>
+                                <p class="small mg-t-box">
+                                    Lorem Ipsum passages and more recently with desktop published software like Aldus PageMaker including versions of Lorem.
+                                </p>
+                                <button class="btn btn-info btn-sm">Action button</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div class="hpanel responsive-mg-b-30">
+                        <div class="panel-body">
+                            <div class="text-center content-box">
+                                <h2 class="m-b-xs">Box title</h2>
+                                <p class="font-bold text-warning">Lorem ipsum</p>
+                                <div class="m icon-box">
+                                    <i class="fa fa-recycle" aria-hidden="true"></i>
+                                </div>
+                                <p class="small mg-t-box">
+                                    Lorem Ipsum passages and more recently with desktop published software like Aldus PageMaker including versions of Lorem.
+                                </p>
+                                <button class="btn btn-warning btn-sm">Action button</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div class="hpanel">
+                        <div class="panel-body">
+                            <div class="text-center content-box">
+                                <h2 class="m-b-xs">Box title</h2>
+                                <p class="font-bold text-danger">Lorem ipsum</p>
+                                <div class="m icon-box">
+                                    <i class="fa fa-line-chart" aria-hidden="true"></i>
+                                </div>
+                                <p class="small mg-t-box">
+                                    Lorem Ipsum passages and more recently with desktop published software like Aldus PageMaker including versions of Lorem.
+                                </p>
+                                <button class="btn btn-danger btn-sm">Action button</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+        <div class="widget-program-bg mg-tb-30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="hpanel hbggreen responsive-mg-b-30">
+                            <div class="panel-body">
+                                <div class="text-center content-bg-pro">
+                                    <h3>Total User</h3>
+                                    <p class="text-big font-light" style="font-size: x-large">
+                                        20
+                                    </p>
+                                    <!--<small>
+                                        Lorem Ipsum passages and more recently with desktop published software like Aldus.
+                                    </small>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="hpanel hbgblue responsive-mg-b-30">
+                            <div class="panel-body">
+                                <div class="text-center content-bg-pro">
+                                    <h3>Total Pilgrim</h3>
+                                    <p class="text-big font-light" style="font-size: x-large">
+                                        160
+                                    </p>
+                                    <!--<small>
+                                        Lorem Ipsum passages and more recently with desktop published software like Aldus.
+                                    </small>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="hpanel hbgyellow responsive-mg-b-30">
+                            <div class="panel-body">
+                                <div class="text-center content-bg-pro">
+                                    <h3>Total Income</h3>
+                                    <p class="text-big font-light" style="font-size: x-large">
+                                        750
+                                    </p>
+                                    <!--<small>
+                                        Lorem Ipsum passages and more recently with desktop published software like Aldus.
+                                    </small>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="hpanel hbgred">
+                            <div class="panel-body">
+                                <div class="text-center content-bg-pro">
+                                    <h3>Current Month Income</h3>
+                                    <p class="text-big font-light" style="font-size: x-large">
+                                        0,43
+                                    </p>
+                                    <!--<small>
+                                        Lorem Ipsum passages and more recently with desktop published software like Aldus.
+                                    </small>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    <!--<div class="author-area-pro">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="personal-info-wrap">
+                        <div class="widget-head-info-box">
+                            <div class="persoanl-widget-hd">
+                                <h2>Jon Royita</h2>
+                                <p>Founder of Uttara It Park</p>
+                            </div>
+                            <img src="img/notification/5.jpg" class="img-circle circle-border m-b-md" alt="profile">
+                            <div class="social-widget-result">
+                                <span>100 Tweets</span> |
+                                <span>350 Following</span> |
+                                <span>610 Followers</span>
+                            </div>
+                        </div>
+                        <div class="widget-text-box">
+                            <h4>Jhon Royita</h4>
+                            <p>To all the athaists attacking me right now, I can't make you believe in God, you have to have faith.</p>
+                            <div class="text-right like-love-list">
+                                <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+                                <a class="btn btn-xs btn-primary"><i class="fa fa-heart"></i> Love</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="author-widgets-single res-mg-t-30">
+                        <div class="author-wiget-inner">
+                            <div class="perso-img">
+                                <img src="img/notification/6.jpg" class="img-circle circle-border m-b-md" alt="profile">
+                            </div>
+                            <div class="persoanl-widget-hd persoanl1-widget-hd">
+                                <h2>Fire Foxy</h2>
+                                <p>Founder of Uttara It House</p>
+                            </div>
+                            <div class="social-widget-result social-widget1-result">
+                                <span>100 Tweets</span> |
+                                <span>350 Following</span> |
+                                <span>610 Followers</span>
+                            </div>
+                        </div>
+                        <div class="widget-text-box">
+                            <h4>Fire Foxy</h4>
+                            <p>To all the athaists attacking me right now, I can't make you believe in God, you have to have faith.</p>
+                            <div class="text-right like-love-list">
+                                <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+                                <a class="btn btn-xs btn-primary"><i class="fa fa-heart"></i> Love</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="personal-info-wrap personal-info-ano res-mg-t-30">
+                        <div class="widget-head-info-box">
+                            <div class="persoanl-widget-hd">
+                                <h2>Jon Royita</h2>
+                                <p>Founder of Uttara It Park</p>
+                            </div>
+                            <img src="img/contact/2.jpg" class="img-circle circle-border m-b-md" alt="profile">
+                            <div class="social-widget-result">
+                                <span>100 Tweets</span> |
+                                <span>350 Following</span> |
+                                <span>610 Followers</span>
+                            </div>
+                        </div>
+                        <div class="widget-text-box">
+                            <h4>Jhon Royita</h4>
+                            <p>To all the athaists attacking me right now, I can't make you believe in God, you have to have faith.</p>
+                            <div class="text-right like-love-list">
+                                <a class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+                                <a class="btn btn-xs btn-primary"><i class="fa fa-heart"></i> Love</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+    <div class="author-area-pro">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div>
+                        <h4>Groupleader Report</h4>
+                        <a th:href="@{/groupleader/report}" class="btn btn-sm btn-primary">Report</a>
+                        <a th:href="@{/groupleader/pdf}" class="btn btn-sm btn-primary">Report pdf</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div>
+                        <h4>Pilgrim Report</h4>
+                        <a th:href="@{/pilgrim/report}" class="btn btn-sm btn-primary">Report</a>
+                        <a th:href="@{/pilgrim/pdf}" class="btn btn-sm btn-primary">Report pdf</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>

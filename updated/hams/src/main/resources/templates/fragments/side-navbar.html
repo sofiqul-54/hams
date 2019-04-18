@@ -7,8 +7,8 @@
 <body>
 <nav th:fragment="sidenavbar" id="sidebar" class="">
     <div class="sidebar-header">
-        <a href="../index.html"><img class="main-logo" src="/img/logo/logo.png" th:src="@{/img/logo/logo.png}" alt=""/></a>
-        <strong><img src="/img/logo/logo2.png" th:src="@{/img/logo/logo2.png}" alt=""/></strong>
+        <a th:href="@{/}"><img class="main-logo" src="/img/logo/logo.png" th:src="@{/img/logo/logo.png}" alt=""/></a>
+        <a th:href="@{/}"><strong><img src="/img/logo/logo2.png" th:src="@{/img/logo/logo2.png}" alt=""/></strong></a>
     </div>
     <div class="left-custom-menu-adp-wrap comment-scrollbar">
         <nav class="sidebar-nav left-sidebar-menu-pro">
@@ -63,6 +63,7 @@
                     <ul class="submenu-angle" aria-expanded="false">
                         <li><a title="degt list" th:href="@{/pilgrim/list}"><i class="fa fa-file sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">List</span></a></li>
                         <li><a title="Register" th:href="@{/pilgrim/add}"><i class="fa fa-plane sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Add</span></a></li>
+                        <li><a title="Register" th:href="@{/pilgrim/summary}"><i class="fa fa-plane sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">Pilgrim Summary</span></a></li>
                     </ul>
                 </li>
                 <li>
@@ -99,6 +100,13 @@
                             class="fa big-icon fa-envelope icon-wrap"></i> <span
                             class="mini-click-non">Income|Expense </span></a>
                     <ul class="submenu-angle" aria-expanded="false">
+                        <li><a title="accounthead" th:href="@{/achead/add}"><i class="fa fa-television sub-icon-mg"
+                                                                               aria-hidden="true"></i> <span class="mini-sub-pro">Add Account Head</span></a>
+                        </li>
+                        <li><a title="accounthead" th:href="@{/achead/list}"><i class="fa fa-television sub-icon-mg"
+                                                                               aria-hidden="true"></i> <span class="mini-sub-pro">Account Head List</span></a>
+                        </li>
+
                         <li><a title="meetinglist" th:href="@{/income/add}"><i class="fa fa-television sub-icon-mg"
                                                                     aria-hidden="true"></i> <span class="mini-sub-pro">Add Income</span></a>
                         </li>

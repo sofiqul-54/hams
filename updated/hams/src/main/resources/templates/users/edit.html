@@ -16,7 +16,7 @@
                 <div class="sparkline12-list">
                     <div class="sparkline12-hd">
                         <div class="main-sparkline12-hd">
-                            <h1>Add User</h1>
+                            <h1>Edit User</h1>
                         </div>
                     </div>
                     <div class="sparkline12-graph">
@@ -24,17 +24,16 @@
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="all-form-element-inner">
-                                        <span th:class="succes" th:text="${successMsg}"></span>
-                                        <span th:class="err" th:text="${rejectMsg}"></span>
+                                        <!--<span th:class="succes" th:text="${successMsg}"></span>
+                                        <span th:class="err" th:text="${rejectMsg}"></span>-->
 
                                        <form th:object="${user}" th:action="@{/user/edit/}+${id}" th:method="POST" enctype="multipart/form-data">
-                                                &lt;!&ndash; hiden file &ndash;&gt;
                                                 <div class="form-group-inner">
                                                     <div class="row">
                                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                             <input type="hidden" th:field="*{id}" th:value="${user.id}" class="form-control"/>
                                                             <input type="hidden" th:field="*{regiDate}" th:value="${user.regiDate}" class="form-control"/>
-                                                            &lt;!&ndash;<input type="hidden" th:field="*{password}" th:value="${user.password}" class="form-control"/>&ndash;&gt;
+                                                           &lt;!&ndash;&lt;!&ndash; &lt;!&ndash;<input type="hidden" th:field="*{password}" th:value="${user.password}" class="form-control"/>&ndash;&gt;&ndash;&gt;
                                                             <input type="hidden" th:field="*{enabled}" th:value="${user.enabled}" class="form-control"/>
                                                             <input type="hidden" th:field="*{confirmationToken}" th:value="${user.confirmationToken}" class="form-control"/>
 
@@ -103,7 +102,7 @@
                                                               th:errors="*{userName}">userName Error</span>
                                                     </div>
 
-                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
+                                                    <!--<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                                                         <label class="login2 pull-right pull-right-pro">Password</label>
                                                     </div>
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
@@ -111,6 +110,14 @@
                                                                class="form-control"/>
                                                         <span th:class="err" th:if="${#fields.hasErrors('password')}"
                                                               th:errors="*{password}">password Error</span>
+                                                    </div>-->
+
+                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                                        <label class="login2 pull-right pull-right-pro">BirthDay</label>
+                                                    </div>
+                                                    <div class="col-lg-14 col-md-14 col-sm-4 col-xs-12">
+                                                        <input type="date" th:field="*{birthDate}"
+                                                               class="form-control"/>
                                                     </div>
                                                 </div>
 
@@ -133,7 +140,7 @@
                                                             No</label>
                                                     </div>
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                                                        <input type="number" th:field="*{mobile}"
+                                                        <input type="text" th:field="*{mobile}"
                                                                class="form-control"/>
                                                     </div>
                                                 </div>
@@ -146,17 +153,17 @@
                                                         <label class="login2 pull-right pull-right-pro">Gender</label>
                                                     </div>
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        Mail <input type="radio" value="mail" th:field="*{gender}"/>
-                                                        Femail <input type="radio" value="femail" th:field="*{gender}"/>
-                                                        Other <input type="radio" value="other" th:field="*{gender}"/>
+                                                         <input type="radio" value="Male" th:field="*{gender}"/> Male
+                                                         <input type="radio" value="Female" th:field="*{gender}"/> Female
+
                                                     </div>
-                                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                                    <!--<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                                                         <label class="login2 pull-right pull-right-pro">BirthDay</label>
                                                     </div>
                                                     <div class="col-lg-14 col-md-14 col-sm-4 col-xs-12">
                                                         <input type="date" th:field="*{birthDate}"
                                                                class="form-control"/>
-                                                    </div>
+                                                    </div>-->
                                                 </div>
                                             </div>
                                             <!--end gender name and birth name -->

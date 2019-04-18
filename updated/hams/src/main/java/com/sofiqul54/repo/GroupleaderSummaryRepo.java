@@ -4,6 +4,7 @@ import com.sofiqul54.entity.GroupLeaderSummary;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface GroupleaderSummaryRepo extends JpaRepository<GroupLeaderSummary, Long> {
-GroupleaderSummaryRepo findByLeaderName(String leaderName);
+GroupLeaderSummary findByLeaderName(String leaderName);
+GroupLeaderSummary findByTotalCommission(Double totalCommission);
 
 }

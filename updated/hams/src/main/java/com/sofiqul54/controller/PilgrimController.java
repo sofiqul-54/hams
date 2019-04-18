@@ -5,19 +5,36 @@ import com.sofiqul54.entity.BookingSummary;
 import com.sofiqul54.entity.GroupLeaderSummary;
 import com.sofiqul54.entity.Groupleader;
 import com.sofiqul54.entity.Pilgrim;
+import com.sofiqul54.jasper.MediaTypeUtils;
 import com.sofiqul54.repo.*;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.export.HtmlExporter;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleHtmlExporterOutput;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
+
+
 
 @Controller
 @RequestMapping(value = "/pilgrim/")
@@ -39,6 +56,11 @@ public class PilgrimController {
     @Autowired
     private GroupleaderSummaryRepo groupleaderSummaryRepo;
 
+
+
+
+
+
     @GetMapping(value = "add")
     public String viewAdd(Pilgrim pilgrim, Model model) {
         model.addAttribute("packagelist", this.packageRepo.findAll());
@@ -47,7 +69,8 @@ public class PilgrimController {
     }
 
     @PostMapping(value = "add")
-    public String userSave(@Valid Pilgrim pilgrim, Groupleader groupleader, GroupLeaderSummary summary, BindingResult bindingResult, Model model) {
+    public String userSave(@Valid Pilgrim pilgrim, Groupleader groupleader,GroupLeaderSummary summary, BindingResult bindingResult, Model model) {
+
         if (bindingResult.hasErrors()) {
             return "pilgrims/add";
         } else {
@@ -70,7 +93,7 @@ public class PilgrimController {
                     double com = pilgrim.getPpackage().getPrice() * (comm/100);
 
 
-                    double totalCom = summary.getPilgrim().getGroupleader().getTotalCommission() + com  ;
+                    double totalCom = summary.getTotalCommission() + com  ;
 
                     GroupLeaderSummary groupLeaderSummary = new GroupLeaderSummary(pilgrim.getGroupleader().getLeaderName(), com,
                     totalCom, pilgrim);
@@ -128,4 +151,13 @@ public class PilgrimController {
         model.addAttribute("list", this.repo.findAll());
         return "pilgrims/list";
     }
+
+    /*Pilgrim Summary*/
+    @GetMapping(value = "summary")
+    public String summaryView(Model model) {
+        model.addAttribute("summarylist", this.bookingSummaryRepo.findAll());
+        return "summary/summary";
+
+    }
+
 }

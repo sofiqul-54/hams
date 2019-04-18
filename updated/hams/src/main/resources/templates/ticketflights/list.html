@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Passport List|HAMS</title>
+
+</head>
+<body>
+<div layout:fragment="custom-content">
+
+        <div class="data-table-area mg-tb-15">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="sparkline13-list">
+                            <div class="sparkline13-hd">
+                                <div class="main-sparkline13-hd">
+                                    <h1>Passport  <span class="table-project-n">List</span></h1>
+                                </div>
+                            </div>
+                            <div class="sparkline13-graph">
+                                <div class="datatable-dashv1-list custom-datatable-overright">
+                                    <div id="toolbar">
+                                        <select class="form-control">
+                                            <option value="">Export Basic</option>
+                                            <option value="all">Export All</option>
+                                            <option value="selected">Export Selected</option>
+                                        </select>
+                                    </div>
+                                    <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
+                                           data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
+                                        <thead>
+                                        <tr class="align-center">
+                                            <th data-field="state" data-checkbox="true"></th>
+                                            <th data-field="id">ID</th>
+
+                                           <!-- <th data-field="pilg">Pilgrim Name</th>-->
+                                            <th data-field="pilg">Pilgrim No</th>
+                                            <th data-field="passno">Ticket No</th>
+
+                                            <th data-field="issu">Ticketting Agency</th>
+                                            <th data-field="exp">Flight No</th>
+                                            <th data-field="dip">Flight Date</th>
+                                            <th data-field="dip">Return Date</th>
+                                            <th data-field="edit">Edit</th>
+                                            <th data-field="delete">Delete</th>
+                                            <th data-field="action">Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr th:each="pass:${list}">
+                                            <td> </td>
+                                            <td th:text="${pass.id}"></td>
+                                            <!--<td th:text="${pass.pilgrim.name}"></td>-->
+                                            <td th:text="${pass.pilgrim.pilgrimNumber}"></td>
+                                            <td th:text="${pass.ticketNo}"></td>
+
+                                            <td th:text="${pass.tikAgnName}"></td>
+                                            <td th:text="${pass.flightNo}"></td>
+                                            <td th:text="${pass.flightDate}"></td>
+                                            <td th:text="${pass.returnDate}"></td>
+                                            <td>
+                                                <a th:href="@{'/ticketflightinfo/edit/'+${pass.id}}" class="btn btn-info">Edit</a>
+                                            </td>
+                                            <td>
+                                                <a th:href="@{'/ticketflightinfo/del/'+${pass.id}}" class="btn btn-danger">Del</a>
+                                            </td>
+                                            <td class="datatable-ct"><i class="fa fa-check"></i>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+</div>
+
+</body>
+</html>

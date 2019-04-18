@@ -1,7 +1,10 @@
 package com.sofiqul54.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name = "ticket_flight")
@@ -9,14 +12,23 @@ public class TicketFlightInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false, unique = true)
     private String ticketNo;
+
     private String tikAgnName;
+
     @Column(nullable = false, unique = true)
     private String flightNo;
+
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(nullable = false)
     private Date flightDate;
+
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(nullable = false)
     private Date returnDate;
 
     @OneToOne
@@ -77,5 +89,24 @@ public class TicketFlightInfo {
 
     public void setPilgrim(Pilgrim pilgrim) {
         this.pilgrim = pilgrim;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TicketFlightInfo that = (TicketFlightInfo) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(ticketNo, that.ticketNo) &&
+                Objects.equals(tikAgnName, that.tikAgnName) &&
+                Objects.equals(flightNo, that.flightNo) &&
+                Objects.equals(flightDate, that.flightDate) &&
+                Objects.equals(returnDate, that.returnDate) &&
+                Objects.equals(pilgrim, that.pilgrim);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, ticketNo, tikAgnName, flightNo, flightDate, returnDate, pilgrim);
     }
 }

@@ -69,6 +69,7 @@ public class VisaInfoController {
         } else {
             visaInfo.setId(id);
             visaInfo.setVisaNo(visaInfo.getVisaNo());
+            model.addAttribute("visainfo", new VisaInfo());
             model.addAttribute("pilgrimlist", this.pilgrimRepo.findAll());
             this.repo.save(visaInfo);
         }

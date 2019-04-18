@@ -34,6 +34,7 @@
                                                         <option th:each="p : ${pilgrimlist}"
                                                                 th:value="${p.id}">
                                                             <span th:text="${p.name}"></span>
+                                                            (<span th:text="${p.pilgrimNumber}"></span>)
                                                         </option>
                                                     </select>
                                                 </div>

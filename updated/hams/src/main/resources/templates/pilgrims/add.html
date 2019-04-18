@@ -24,8 +24,8 @@
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="all-form-element-inner">
-                                        <span th:class="succes" th:text="${successMsg}"></span>
-                                        <span th:class="err" th:text="${rejectMsg}"></span>
+                                        <span style="color: green" th:class="succes" th:text="${successMsg}"></span>
+                                        <span style="color: red" th:class="err" th:text="${rejectMsg}"></span>
                                         <form th:object="${pilgrim}" th:action="@{/pilgrim/add}" th:method="POST">
                                             <div class="form-group row">
                                                 <label for="ppackage" class="col-sm-3 col-form-label form-label">Package</label>
@@ -177,13 +177,13 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row">
+                                            <!--<div class="form-group row">
                                                 <label for="filePath" class="col-sm-3 col-form-label form-label">Photo</label>
                                                 <div class="col-sm-9">
                                                     <input type="file" class="form-control" th:field="*{filePath}" id="filePath"
                                                            placeholder="Photo">
                                                 </div>
-                                            </div>
+                                            </div>-->
 
 
 

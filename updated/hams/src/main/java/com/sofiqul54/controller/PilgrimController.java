@@ -5,7 +5,9 @@ import com.sofiqul54.entity.BookingSummary;
 import com.sofiqul54.entity.GroupLeaderSummary;
 import com.sofiqul54.entity.Groupleader;
 import com.sofiqul54.entity.Pilgrim;
+import com.sofiqul54.jasper.GroupleaderService;
 import com.sofiqul54.jasper.MediaTypeUtils;
+import com.sofiqul54.jasper.PilgrimService;
 import com.sofiqul54.repo.*;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
@@ -56,7 +58,11 @@ public class PilgrimController {
     @Autowired
     private GroupleaderSummaryRepo groupleaderSummaryRepo;
 
+    @Autowired
+    private PilgrimService pilgrimService;
 
+    @Autowired
+    ServletContext context;
 
 
 
@@ -158,6 +164,98 @@ public class PilgrimController {
         model.addAttribute("summarylist", this.bookingSummaryRepo.findAll());
         return "summary/summary";
 
+    }
+
+    /*=====================Jasper Report===============*/
+    @RequestMapping(value = "pilgrimreport", method = RequestMethod.GET)
+    public void report(HttpServletResponse response) throws Exception {
+        response.setContentType("text/html");
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(pilgrimService.report());
+        InputStream inputStream = this.getClass().getResourceAsStream("/pilgrim/report.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, dataSource);
+        HtmlExporter exporter = new HtmlExporter(DefaultJasperReportsContext.getInstance());
+        exporter.setExporterInput(new SimpleExporterInput(jasperPrint));
+        exporter.setExporterOutput(new SimpleHtmlExporterOutput(response.getWriter()));
+        exporter.exportReport();
+    }
+
+    /*@RequestMapping(value = "/pdf", method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_PDF_VALUE)
+    public void reportPdf(HttpServletResponse response) throws Exception {
+        String source = "E:\\J2EE_ALL_(OWN)\\Git_Own\\hams\\hams\\src\\main\\resources\\groupleaderreport.jrxml";
+        try {
+                JasperCompileManager.compileReportToFile(source);
+        } catch (JRException e) {
+            e.printStackTrace();
+        }
+        String sourceFileName = "E:\\J2EE_ALL_(OWN)\\Git_Own\\hams\\hams\\src\\main\\resources\\groupleaderreport1.jasper";
+
+        String printFileName = null;
+        String destFileName = "E:\\J2EE_ALL_(OWN)\\Git_Own\\hams\\hams\\src\\main\\resources\\groupleaderreport.pdf";
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(groupleaderService.report());
+        Map parameters = new HashMap();
+        try {
+            printFileName = JasperFillManager.fillReportToFile(sourceFileName,
+                    parameters, dataSource);
+            if (printFileName != null) {
+                JasperExportManager.exportReportToPdfFile(printFileName,
+                        destFileName);
+            }
+        } catch (JRException e) {
+            e.printStackTrace();
+        }
+    }*/
+
+    ////////////////pdf//////////////////////
+
+
+    public void pilreportPdf() throws Exception {
+        String source = "src\\main\\resources\\pilgrim\\report.jrxml";
+        try {
+            JasperCompileManager.compileReportToFile(source);
+        } catch (JRException e) {
+            e.printStackTrace();
+        }
+        String sourceFileName = "src\\main\\resources\\pilgrim\\report1.jasper";
+        String printFileName = null;
+        String destFileName = "src\\main\\resources\\pilgrim\\pilgrim\\report.pdf";
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(pilgrimService.report());
+        Map parameters = new HashMap();
+        try {
+            printFileName = JasperFillManager.fillReportToFile(sourceFileName,
+                    parameters, dataSource);
+            if (printFileName != null) {
+                JasperExportManager.exportReportToPdfFile(printFileName,
+                        destFileName);
+            }
+        } catch (JRException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @RequestMapping("pilgrimpdf")
+    public ResponseEntity<InputStreamResource> downloadFile1() throws IOException {
+        try {
+            pilreportPdf();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        String fileName="src\\main\\resources\\pilgrim\\report.pdf";
+        MediaType mediaType = MediaTypeUtils.getMediaTypeForFileName(this.context, fileName);
+
+        File file = new File(fileName);
+        InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
+
+        return ResponseEntity.ok()
+                // Content-Disposition
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" + file.getName())
+                // Content-Type
+                .contentType(mediaType)
+                // Contet-Length
+                .contentLength(file.length())
+                .body(resource);
     }
 
 }

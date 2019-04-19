@@ -2,9 +2,22 @@ package com.sofiqul54.controller;
 
 
 import com.sofiqul54.entity.User;
+import com.sofiqul54.jasper.MediaTypeUtils;
+import com.sofiqul54.jasper.UserService;
 import com.sofiqul54.repo.RoleRepo;
 import com.sofiqul54.repo.UserRepo;
+
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.export.HtmlExporter;
+import net.sf.jasperreports.export.SimpleExporterInput;
+import net.sf.jasperreports.export.SimpleHtmlExporterOutput;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,12 +25,21 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
+
 
 
 @Controller
@@ -37,6 +59,12 @@ public class UserController {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    ServletContext context;
 
     @GetMapping(value = "add")
     public String viewAdd(Model model) {
@@ -150,5 +178,70 @@ public class UserController {
     public String list(Model model) {
         model.addAttribute("list", this.repo.findAll());
         return "users/list";
+    }
+
+    ////////////////////////////JASPER/////////////////////////////////
+
+
+    @RequestMapping(value = "userreport", method = RequestMethod.GET)
+    public void report(HttpServletResponse response) throws Exception {
+        response.setContentType("text/html");
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(userService.report());
+        InputStream inputStream = this.getClass().getResourceAsStream("/userreport/report.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(inputStream);
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, dataSource);
+        HtmlExporter exporter = new HtmlExporter(DefaultJasperReportsContext.getInstance());
+        exporter.setExporterInput(new SimpleExporterInput(jasperPrint));
+        exporter.setExporterOutput(new SimpleHtmlExporterOutput(response.getWriter()));
+        exporter.exportReport();
+    }
+    ////////////////pdf//////////////////////
+
+    //    @RequestMapping(value = "/pdf", method = RequestMethod.GET,
+//            produces = MediaType.APPLICATION_PDF_VALUE)
+    public void userreportPdf() throws Exception {
+        String source = "src\\main\\resources\\userreport\\report.jrxml";
+        try {
+            JasperCompileManager.compileReportToFile(source);
+        } catch (JRException e) {
+            e.printStackTrace();
+        }
+        String sourceFileName = "\\src\\main\\resources\\userreport\\report1.jasper";
+        String printFileName = null;
+        String destFileName = "src\\main\\resources\\userreport\\report.pdf";
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(userService.report());
+        Map parameters = new HashMap();
+        try {
+            printFileName = JasperFillManager.fillReportToFile(sourceFileName, parameters, dataSource);
+            if (printFileName != null) {
+                JasperExportManager.exportReportToPdfFile(printFileName, destFileName);
+            }
+        } catch (JRException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @RequestMapping("userpdf")
+    public ResponseEntity<InputStreamResource> downloadFile1() throws IOException {
+        try {
+            userreportPdf();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        String fileName="src\\\\main\\\\resources\\\\userreport\\\\report.pdf";
+        MediaType mediaType = MediaTypeUtils.getMediaTypeForFileName(this.context, fileName);
+
+        File file=new File(fileName);
+        InputStreamResource resource = new InputStreamResource(new FileInputStream(file));
+
+        return ResponseEntity.ok()
+                // Content-Disposition
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=" + file.getName())
+                // Content-Type
+                .contentType(mediaType)
+                // Contet-Length
+                .contentLength(file.length()) //
+                .body(resource);
     }
 }

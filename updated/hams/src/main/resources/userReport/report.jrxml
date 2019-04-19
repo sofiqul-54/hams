@@ -4,13 +4,10 @@
         <![CDATA[]]>
     </queryString>
     <field name="id" class="java.lang.Long"/>
-    <field name="pilgrimNumber" class="java.lang.String"/>
-    <field name="name" class="java.lang.String"/>
-    <field name="gender" class="java.lang.String"/>
-    <field name="email" class="java.lang.String"/>
-    <field name="district" class="java.lang.String"/>
-    <field name="bookingAmount" class="java.lang.Double"/>
-
+    <field name="firstName" class="java.lang.String"/>
+    <field name="mobile" class="java.lang.String"/>
+    <field name="lastName" class="java.lang.String"/>
+    <field name="userName" class="java.lang.String"/>
 
 
     <background>
@@ -20,13 +17,14 @@
         <band height="36" splitType="Stretch"/>
     </title>
     <pageHeader>
-        <band height="49" splitType="Stretch">
+
+        <band height="50" splitType="Stretch">
             <staticText>
-                <reportElement x="175" y="10" width="500" height="30" uuid="04d35299-5eb0-4a34-b340-3ca5cf8290fc"/>
+                <reportElement x="130" y="10" width="600" height="30" uuid="04d35299-5eb0-4a34-b340-3ca5cf8290fc"/>
                 <textElement>
                     <font size="20" isBold="true"/>
                 </textElement>
-                <text><![CDATA[Jasper Report for Groupleader List]]></text>
+                <text><![CDATA[Report for User List]]></text>
             </staticText>
         </band>
     </pageHeader>
@@ -44,43 +42,44 @@
                 <textElement>
                     <font size="11" isBold="true"/>
                 </textElement>
-                <text><![CDATA[Pilgrim No]]></text>
+                <text><![CDATA[FirstName]]></text>
             </staticText>
             <staticText>
                 <reportElement x="210" y="10" width="70" height="20" uuid="93727672-9f69-4856-aa26-33837e8dc417"/>
                 <textElement>
                     <font fontName="SansSerif" isBold="true"/>
                 </textElement>
-                <text><![CDATA[Name]]></text>
-            </staticText>
-            <!--<staticText>
-                <reportElement x="280" y="10" width="70" height="20" uuid="09b47abe-09b2-479a-bb76-9770e361a23c"/>
-                <textElement>
-                    <font isBold="true"/>
-                </textElement>
-                <text><![CDATA[Gender]]></text>
-            </staticText>-->
-            <staticText>
-                <reportElement x="350" y="10" width="150" height="20" uuid="c258f47b-da6a-418d-a5e0-892388ec65c5"/>
-                <textElement>
-                    <font isBold="true"/>
-                </textElement>
-                <text><![CDATA[Email]]></text>
+                <text><![CDATA[Mobile]]></text>
             </staticText>
             <staticText>
-                <reportElement x="510" y="10" width="100" height="20" uuid="c258f47b-da6a-418d-a5e0-892388ec65c5"/>
+                <reportElement x="310" y="10" width="70" height="20" uuid="93727672-9f69-4856-aa26-33837e8dc417"/>
                 <textElement>
-                    <font isBold="true"/>
+                    <font fontName="SansSerif" isBold="true"/>
                 </textElement>
-                <text><![CDATA[District]]></text>
+                <text><![CDATA[Last Name]]></text>
             </staticText>
             <staticText>
-                <reportElement x="610" y="10" width="100" height="20" uuid="c258f47b-da6a-418d-a5e0-892388ec65c5"/>
+                <reportElement x="410" y="10" width="70" height="20" uuid="93727672-9f69-4856-aa26-33837e8dc417"/>
                 <textElement>
-                    <font isBold="true"/>
+                    <font fontName="SansSerif" isBold="true"/>
                 </textElement>
-                <text><![CDATA[Booking Money]]></text>
+                <text><![CDATA[User Name]]></text>
             </staticText>
+            <!--<staticText>-->
+                <!--<reportElement x="314" y="10" width="70" height="20" uuid="09b47abe-09b2-479a-bb76-9770e361a23c"/>-->
+                <!--<textElement>-->
+                    <!--<font isBold="true"/>-->
+                <!--</textElement>-->
+                <!--<text><![CDATA[Task Critical Level]]></text>-->
+            <!--</staticText>-->
+            <!--<staticText>-->
+                <!--<reportElement x="410" y="10" width="100" height="20" uuid="c258f47b-da6a-418d-a5e0-892388ec65c5"/>-->
+                <!--<textElement>-->
+                    <!--<font isBold="true"/>-->
+                <!--</textElement>-->
+                <!--<text><![CDATA[Project Module]]></text>-->
+            <!--</staticText>-->
+
         </band>
     </columnHeader>
     <detail>
@@ -91,23 +90,19 @@
             </textField>
             <textField>
                 <reportElement x="90" y="4" width="70" height="16" uuid="ba6e9cfa-6d4c-470b-8bc4-eb2e3411c21e"/>
-                <textFieldExpression><![CDATA[$F{pilgrimNumber}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{firstName}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement x="210" y="4" width="70" height="16" uuid="447253d3-d268-4873-b0b7-9c174c6a7c9f"/>
-                <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
-            </textField>
-            <!--<textField>
-                <reportElement x="280" y="4" width="70" height="16" uuid="447253d3-d268-4873-b0b7-9c174c6a7c9f"/>
-                <textFieldExpression><![CDATA[$F{gender}]]></textFieldExpression>
-            </textField>-->
-            <textField>
-                <reportElement x="350" y="4" width="150" height="16" uuid="447253d3-d268-4873-b0b7-9c174c6a7c9f"/>
-                <textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+                <textFieldExpression><![CDATA[$F{mobile}]]></textFieldExpression>
             </textField>
             <textField>
-                <reportElement x="510" y="4" width="70" height="16" uuid="447253d3-d268-4873-b0b7-9c174c6a7c9f"/>
-                <textFieldExpression><![CDATA[$F{district}]]></textFieldExpression>
+                <reportElement x="310" y="4" width="70" height="16" uuid="447253d3-d268-4873-b0b7-9c174c6a7c9f"/>
+                <textFieldExpression><![CDATA[$F{lastName}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="410" y="4" width="70" height="16" uuid="447253d3-d268-4873-b0b7-9c174c6a7c9f"/>
+                <textFieldExpression><![CDATA[$F{userName}]]></textFieldExpression>
             </textField>
             <!--<textField>-->
                 <!--<reportElement x="410" y="4" width="100" height="16" uuid="8992d0ad-1f5e-4210-b50b-1e29dc66f119"/>-->
@@ -128,12 +123,7 @@
                 <!--</reportElement>-->
                 <!--<textFieldExpression><![CDATA[$F{company}]]></textFieldExpression>-->
             <!--</textField>-->
-            <textField>
-                <reportElement x="610" y="4" width="100" height="16" uuid="fcdabc18-dc44-46e3-be56-11e5f33b8e0c">
-                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="73fad7b3-74b5-4436-bd46-d2b9c3c1cdba"/>
-                </reportElement>
-                <textFieldExpression><![CDATA[$F{bookingAmount}]]></textFieldExpression>
-            </textField>
+
         </band>
     </detail>
     <columnFooter>
@@ -145,4 +135,5 @@
     <summary>
         <band height="42" splitType="Stretch"/>
     </summary>
+
 </jasperReport>

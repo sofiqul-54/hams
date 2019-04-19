@@ -5,7 +5,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
 <head>
     <meta charset="UTF-8">
-    <title>Groupleader :::list</title>
+    <title>Groupleader summary :::list</title>
 
 </head>
 <body>
@@ -18,7 +18,7 @@
                         <div class="sparkline13-list">
                             <div class="sparkline13-hd">
                                 <div class="main-sparkline13-hd">
-                                    <h1>Groupleader  <span class="table-project-n">List</span></h1>
+                                    <h1>Groupleader   <span class="table-project-n">Summary</span></h1>
                                 </div>
                             </div>
                             <div class="sparkline13-graph">
@@ -37,44 +37,19 @@
                                             <th data-field="state" data-checkbox="true"></th>
                                             <th data-field="id">ID</th>
                                             <th data-field="name">Name</th>
-                                            <th data-field="gender">Gender</th>
-                                            <th data-field="nid">NID</th>
-                                            <th data-field="birth">Birth Date</th>
-                                            <th data-field="mobile">Mobile</th>
-                                            <th data-field="email">Email</th>
-                                           <!-- <th data-field="address">Address</th>-->
-                                            <th data-field="home">Home District</th>
-                                            <th data-field="pass">Passport No</th>
-                                            <th data-field="issue">Passport Issue Date</th>
-                                            <th data-field="exp">Passport Exp. Date</th>
-                                            <th data-field="reg">Reg. Date</th>
-                                            <th data-field="edit">Edit</th>
-                                            <th data-field="delete">Delete</th>
+                                            <th data-field="rate">Commission Rate</th>
+                                            <th data-field="tcommission">Total Commission</th>
                                             <th data-field="action">Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr th:each="leader:${list}">
+                                        <tr th:each="package:${summarylist}">
                                             <td> </td>
-                                            <td th:text="${leader.id}"></td>
-                                            <td th:text="${leader.leaderName}"></td>
-                                            <td th:text="${leader.gender}"></td>
-                                            <td th:text="${leader.nid}"></td>
-                                            <td th:text="${leader.birthDate}"></td>
-                                            <td th:text="${leader.mobile}"></td>
-                                            <td th:text="${leader.email}"></td>
-                                            <!--<td th:text="${leader.address}"></td>-->
-                                            <td th:text="${leader.district}"></td>
-                                            <td th:text="${leader.district}"></td>
-                                            <td th:text="${leader.issuDate}"></td>
-                                            <td th:text="${leader.expDate}"></td>
-                                            <td th:text="${leader.regiDate}"></td>
-                                            <td>
-                                                <a th:href="@{'/groupleader/edit/'+${leader.id}}" class="btn btn-info">Edit</a>
-                                            </td>
-                                            <td>
-                                                <a th:href="@{'/groupleader/del/'+${leader.id}}" class="btn btn-danger">Delete</a>
-                                            </td>
+                                            <td th:text="${package.id}"></td>
+                                            <td th:text="${package.leaderName}"></td>
+                                            <td th:text="${package.commission}"></td>
+                                            <td th:text="${package.totalCommission}"></td>
+
                                             <td class="datatable-ct"><i class="fa fa-check"></i>
                                             </td>
                                         </tr>

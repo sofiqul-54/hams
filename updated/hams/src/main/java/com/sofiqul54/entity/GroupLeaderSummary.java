@@ -21,6 +21,7 @@ public class GroupLeaderSummary {
     private Pilgrim pilgrim;
 
 
+
     public GroupLeaderSummary() {
     }
 
@@ -70,6 +71,7 @@ public class GroupLeaderSummary {
     public void setPilgrim(Pilgrim pilgrim) {
         this.pilgrim = pilgrim;
     }
+
 
 
     @Override

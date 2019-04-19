@@ -5,6 +5,7 @@ import com.sofiqul54.jasper.GroupleaderService;
 import com.sofiqul54.jasper.MediaTypeUtils;
 import com.sofiqul54.repo.GroupleaderRepo;
 
+import com.sofiqul54.repo.GroupleaderSummaryRepo;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.export.HtmlExporter;
@@ -49,6 +50,9 @@ public class GroupleaderController {
 
     @Autowired
     ServletContext context;
+
+    @Autowired
+    private GroupleaderSummaryRepo groupleaderSummaryRepo;
 
 
 
@@ -114,6 +118,15 @@ public class GroupleaderController {
     public String list(Model model) {
         model.addAttribute("list", this.repo.findAll());
         return "groupleaders/list";
+    }
+
+
+    /*Groupleader Summary*/
+    @GetMapping(value = "leadersummary")
+    public String summaryView(Model model) {
+        model.addAttribute("summarylist", this.groupleaderSummaryRepo.findAll());
+        return "summary/groupleader";
+
     }
 	
 	@RequestMapping(value = "report", method = RequestMethod.GET)

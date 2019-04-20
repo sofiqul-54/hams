@@ -15,6 +15,7 @@ public class VisaInfo {
 
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(nullable = false)
     private Date applyDate;
 
     @Column(unique = true, nullable = false)
@@ -22,10 +23,12 @@ public class VisaInfo {
 
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(nullable = false)
     private Date vIssueDate;
 
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(nullable = false)
     private Date vValidityDate;
 
     private String status;

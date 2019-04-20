@@ -75,7 +75,7 @@ public class PilgrimController {
     }
 
     @PostMapping(value = "add")
-    public String userSave(@Valid Pilgrim pilgrim, Groupleader groupleader,GroupLeaderSummary summary, BindingResult bindingResult, Model model) {
+    public String bookingSave(@Valid Pilgrim pilgrim, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
             return "pilgrims/add";
@@ -95,15 +95,27 @@ public class PilgrimController {
                     bookingSummaryRepo.save(bookingSummary);
 
                         /*groupleader Summary*/
-                    double comm = pilgrim.getGroupleader().getCommission();
-                    double com = pilgrim.getPpackage().getPrice() * (comm/100);
+                    GroupLeaderSummary summary=groupleaderSummaryRepo.findByGroupleader(groupleaderRepo.getOne(pilgrim.getGroupleader().getId()));
+
+                    try{
+                        double comm = pilgrim.getGroupleader().getCommission();
+                        double com = pilgrim.getPpackage().getPrice() * (comm / 100);
+                        double totalCom = summary.getTotalCommission() + com;
+
+                        summary.setTotalCommission(totalCom);
+                        groupleaderSummaryRepo.save(summary);
+                    }catch(NullPointerException ne){
+                        double comm = pilgrim.getGroupleader().getCommission();
+                        double com = pilgrim.getPpackage().getPrice() * (comm / 100);
 
 
-                    double totalCom = summary.getTotalCommission() + com  ;
+                        double totalCom =  com;
 
-                    GroupLeaderSummary groupLeaderSummary = new GroupLeaderSummary(pilgrim.getGroupleader().getLeaderName(), com,
-                    totalCom, pilgrim);
-                    groupleaderSummaryRepo.save(groupLeaderSummary);
+                        GroupLeaderSummary groupLeaderSummary = new GroupLeaderSummary(pilgrim.getGroupleader().getLeaderName(), com,
+                                totalCom, pilgrim, groupleaderRepo.getOne(pilgrim.getGroupleader().getId()));
+                        groupleaderSummaryRepo.save(groupLeaderSummary);
+                    }
+
 
                     model.addAttribute("pilgrim", new Pilgrim());
                     model.addAttribute("successMsg", "Congratulations! Data save sucessfully");

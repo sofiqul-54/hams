@@ -38,6 +38,9 @@ CREATE TABLE `acc_head` (
 --
 
 /*!40000 ALTER TABLE `acc_head` DISABLE KEYS */;
+INSERT INTO `acc_head` (`inc_id`,`acc_id`) VALUES 
+ (1,1),
+ (2,1);
 /*!40000 ALTER TABLE `acc_head` ENABLE KEYS */;
 
 
@@ -72,13 +75,16 @@ CREATE TABLE `account_head` (
   `description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_fbwqctueeekk9bsurtwhp7dum` (`accountname`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `account_head`
 --
 
 /*!40000 ALTER TABLE `account_head` DISABLE KEYS */;
+INSERT INTO `account_head` (`id`,`accountname`,`description`) VALUES 
+ (1,'CASH','Cash Receive'),
+ (2,'CHEQUE','Receive by cheque');
 /*!40000 ALTER TABLE `account_head` ENABLE KEYS */;
 
 
@@ -127,7 +133,7 @@ CREATE TABLE `booking_summary` (
   PRIMARY KEY (`id`),
   KEY `FK4vhjnx0ewq78n3h1r158iyren` (`booksummary_pilgrim`),
   KEY `FKhm5sihqsh8653a2xaq9qr2ed0` (`booksummary_package`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `booking_summary`
@@ -135,9 +141,18 @@ CREATE TABLE `booking_summary` (
 
 /*!40000 ALTER TABLE `booking_summary` DISABLE KEYS */;
 INSERT INTO `booking_summary` (`id`,`collection_amount`,`due_amount`,`paid_amount`,`total_amount`,`booksummary_pilgrim`,`booksummary_package`) VALUES 
- (1,0,525000,55000,580000,1,1),
+ (1,0,445000,135000,580000,1,1),
  (2,0,536000,44000,580000,2,1),
- (3,0,415000,65000,480000,3,3);
+ (3,0,415000,65000,480000,3,3),
+ (4,0,530000,50000,580000,6,1),
+ (5,0,560000,20000,580000,7,1),
+ (6,0,530000,50000,580000,8,1),
+ (7,0,530000,50000,580000,9,1),
+ (8,0,530000,50000,580000,10,1),
+ (9,0,540000,40000,580000,11,1),
+ (10,0,380000,145000,525000,12,2),
+ (11,0,425000,55000,480000,13,3),
+ (12,0,516000,64000,580000,14,1);
 /*!40000 ALTER TABLE `booking_summary` ENABLE KEYS */;
 
 
@@ -191,7 +206,7 @@ CREATE TABLE `group_leader` (
   UNIQUE KEY `UK_3va4shr5l63w5dc01dvaja309` (`leader_nid`),
   UNIQUE KEY `UK_8726lb9gegvp2o6ieqtontwmm` (`pass_name`),
   UNIQUE KEY `UK_og4q1djn046fs8lul7c93wco` (`district`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `group_leader`
@@ -202,7 +217,13 @@ INSERT INTO `group_leader` (`id`,`address`,`birth_date`,`commission`,`district`,
  (1,'16/A, Shaorapara, Mirpur','1991-12-10',2,'Narayangonj','mamun@gmain.com','2022-10-07','Male','2017-10-08','Ashraful Islam','01646526667','2613869450164','BR0274123','2019-04-17 23:00:46',0),
  (2,'507, Khejurbag, South Keranigonj, Dhaka','1988-01-05',3,'Munsigonj','khurshed@gmain.com','2023-04-07','Male','2018-04-08','Sagar','01623970023','1911608450','BB0247123','2019-04-17 23:03:52',0),
  (3,NULL,'1978-09-04',4,'Barishal','mainuddin@gmail.com','2024-04-06','Male','2019-04-07','MainUddin Sikder','01712475891','2613869450166','TW0284123','2019-04-18 07:43:23',0),
- (4,'Sutrapur, Millbarac, Dhaka','2000-02-10',2,'Comilla','khadiza@gmalil.com','2024-04-21','Female','2019-04-22','Sonia Akter','01747427502','1011608454','OW0284123','2019-04-18 07:49:50',0);
+ (4,'Sutrapur, Millbarac, Dhaka','2000-02-10',2,'Comilla','khadiza@gmalil.com','2024-04-21','Female','2019-04-22','Sonia Akter','01747427502','1011608454','OW0284123','2019-04-18 07:49:50',0),
+ (5,NULL,'1996-10-04',2,'Chattragram','rayhan@gmail.com','2020-06-05','Male','2016-06-06','Abu Rayhan','01748497154','2613869450181','MR0284123','2019-04-20 09:34:03',0),
+ (6,NULL,'1991-04-04',3,'Bagura','sajol@gmail.com','2023-06-06','Male','2018-06-07','Sajol','01435433875','1011694550','BM0284987','2019-04-20 09:41:40',0),
+ (7,NULL,'1973-06-07',4,'Magura','idrish@gmail.com','2023-06-08','Male','2018-06-09','Idrish','01435436775','2694769450177','TR0284987','2019-04-20 09:47:09',0),
+ (8,NULL,'1979-10-10',2,'Dhaka','rajaulislm@gmail.com','2024-04-03','Male','2019-04-04','Rajaul Islam','01846652667','2022608450','WE0514987','2019-04-20 09:54:46',0),
+ (9,NULL,'2000-09-07',2,'Rangamati','ashik@gmail.com','2024-03-02','Male','2019-03-03','Ashik Hossain','01842916742','19915554664000154','ON0284123','2019-04-20 09:57:56',0),
+ (10,NULL,'1964-05-05',3,'Chandpur','halim@gmail.com','2023-05-08','Male','2018-05-09','Abdul Halim','01335436775','2613867416477','LK0284123','2019-04-20 09:59:51',0);
 /*!40000 ALTER TABLE `group_leader` ENABLE KEYS */;
 
 
@@ -216,10 +237,10 @@ CREATE TABLE `group_leader_summary` (
   `commission` double NOT NULL,
   `leader_name` varchar(255) DEFAULT NULL,
   `total_commission` double NOT NULL,
+  `groupleader_id` bigint(20) NOT NULL,
   `pilgrim_bookingsummary` bigint(20) NOT NULL,
-  `groupleader_bookingsummary` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `FK45pr57yjunoywl46hapjph2wh` (`groupleader_bookingsummary`),
+  KEY `FKr2t8jtkc9fo75srovkmidy7tg` (`groupleader_id`),
   KEY `FKtqhmhf860b7h10h01wlmh2hb6` (`pilgrim_bookingsummary`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
@@ -228,10 +249,10 @@ CREATE TABLE `group_leader_summary` (
 --
 
 /*!40000 ALTER TABLE `group_leader_summary` DISABLE KEYS */;
-INSERT INTO `group_leader_summary` (`id`,`commission`,`leader_name`,`total_commission`,`pilgrim_bookingsummary`,`groupleader_bookingsummary`) VALUES 
- (1,11600,'Ashraful Islam',11600,1,0),
- (2,17400,'Sagar',17400,2,0),
- (3,9600,'Sonia Akter',9600,3,0);
+INSERT INTO `group_leader_summary` (`id`,`commission`,`leader_name`,`total_commission`,`groupleader_id`,`pilgrim_bookingsummary`) VALUES 
+ (1,11600,'Ashraful Islam',23200,1,10),
+ (2,15750,'Sagar',30150,2,12),
+ (3,23200,'MainUddin Sikder',23200,3,14);
 /*!40000 ALTER TABLE `group_leader_summary` ENABLE KEYS */;
 
 
@@ -250,13 +271,16 @@ CREATE TABLE `income` (
   PRIMARY KEY (`id`),
   KEY `FKrs10kyjomloars9ua3mt1tl3s` (`pilgm_id`),
   KEY `FKovg3s7p0nm4a62ku409wbwfed` (`income_package`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `income`
 --
 
 /*!40000 ALTER TABLE `income` DISABLE KEYS */;
+INSERT INTO `income` (`id`,`account_title`,`amount`,`c_date`,`pilgm_id`,`income_package`) VALUES 
+ (1,'Hajj Installment',80000,'2019-04-20 12:17:15',1,2),
+ (2,'Hajj Installment',80000,'2019-04-20 12:17:48',12,2);
 /*!40000 ALTER TABLE `income` ENABLE KEYS */;
 
 
@@ -321,13 +345,18 @@ CREATE TABLE `passport_info` (
   `passport_pilgrim` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FKheofuvxpjjwx47ivmij53had6` (`passport_pilgrim`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `passport_info`
 --
 
 /*!40000 ALTER TABLE `passport_info` DISABLE KEYS */;
+INSERT INTO `passport_info` (`id`,`dip`,`exp_date`,`issue_date`,`passport_no`,`passport_pilgrim`) VALUES 
+ (1,'Dhaka','2023-03-03','2018-03-04','TR0274123',12),
+ (2,'Dhaka','2022-10-07','2017-10-08','WR0247123',13),
+ (3,'Dhaka','2024-04-06','2019-04-07','TM0247123',14),
+ (4,'Dhaka','2024-04-01','2019-04-01','BQ8174123',5);
 /*!40000 ALTER TABLE `passport_info` ENABLE KEYS */;
 
 
@@ -390,7 +419,7 @@ CREATE TABLE `pilgrim` (
   UNIQUE KEY `UK_hcqr6oulajqarb8u9o3blfqr0` (`pilgrim_number`),
   KEY `FK2b827o3y6xyetpdry78p3pan0` (`gl_id`),
   KEY `FK9xpw2r2mrm9x860ymkhffeb5b` (`pk_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pilgrim`
@@ -401,7 +430,16 @@ INSERT INTO `pilgrim` (`id`,`address`,`birth_date`,`booking_amount`,`district`,`
  (1,'16/A, Shaorapara, Mirpur','1991-12-10',55000,'Narayangonj','mamun@gmain.com','Abdullah',NULL,NULL,NULL,0,'Male','2019-04-17 23:06:18',NULL,'Habiba','Abdullah Al Mamun','2613869450164','Business','2019001','2019-04-17 23:06:18','Monika',0,1,1),
  (2,'507, Khejurbag, South Keranigonj, Dhaka','1988-01-05',44000,'Munsigonj','khurshed@gmain.com','Nazrul Islam',NULL,NULL,NULL,0,'Male','2019-04-17 23:08:10',NULL,'Khaleda Begum','Md. Khurshed Alam','1911608450','Govt. Service','2019002','2019-04-17 23:08:10','',0,2,1),
  (3,'Sutrapur, Millbarac, Dhaka','2000-02-10',65000,'Comilla','khadiza@gmalil.com','Khaleq',NULL,NULL,NULL,0,'Female','2019-04-18 07:52:59',NULL,'Amena Bibi','Khadiza Begum','1011608454','House Wife','2019003','2019-04-18 07:52:59','Abdullah',0,4,3),
- (5,'Kataban','1958-02-21',49000,'Comilla','khairul@gmail.com','Oliullah',NULL,NULL,NULL,0,'Male','2019-04-18 08:02:06',NULL,'Golsan Begum','Khairul Alam','19682694073736400','Retired','2019005','2019-04-18 08:02:06','Monika',0,3,3);
+ (5,'Kataban','1958-02-21',49000,'Comilla','khairul@gmail.com','Oliullah',NULL,NULL,NULL,0,'Male','2019-04-18 08:02:06',NULL,'Golsan Begum','Khairul Alam','19682694073736400','Retired','2019005','2019-04-18 08:02:06','Monika',0,3,3),
+ (6,'Rupgonj, Narayangonj','2019-04-01',50000,'Noakhali','sakmahbub@gmail.com','Abdullah',NULL,NULL,NULL,0,'Female','2019-04-20 10:20:38',NULL,'Umme','Rojina Akter','2613869450000','Privet Service','2019009','2019-04-20 10:20:39','Rasel',0,1,1),
+ (7,'jigatola','2019-03-31',20000,'Noakhali','molgy@gmail.com','Abdullah',NULL,NULL,NULL,0,'Male','2019-04-20 10:30:59',NULL,'Umme','Rojina Akter','261386955450000','Privet Service','2019099','2019-04-20 10:30:59','Rasel',0,1,1),
+ (8,'jigatola','2019-04-14',50000,'Noakhali','moffly@gmail.com','Abdullah',NULL,NULL,NULL,0,'Male','2019-04-20 10:33:14',NULL,'Umme','Rojina Akter','261381269450000','Privet Service','2019651','2019-04-20 10:33:14','rasel',0,1,1),
+ (9,'jigatola','2019-04-15',50000,'Noakhali','molsdsy@gmail.com','Abdullah',NULL,NULL,NULL,0,'Male','2019-04-20 10:36:35',NULL,'Umme','Rojina Akter','2665513869450000','Privet Service','20199001','2019-04-20 10:36:35','Rasel',0,1,1),
+ (10,'jigatola','2019-04-15',50000,'Noakhali','mfddoly@gmail.com','Abdullah',NULL,NULL,NULL,0,'Male','2019-04-20 10:39:33',NULL,'Umme','Rojina Akter','2613845469450147','Privet Service','2019066','2019-04-20 10:39:34','rasel',0,1,1),
+ (11,'Kataban','2019-04-21',40000,'Bagura','azfgfffad@gmail.com','Hassan',NULL,NULL,NULL,0,'Male','2019-04-20 10:40:53',NULL,'Umme','Jobayer','264413869450147','Business','201900166','2019-04-20 10:40:53','rasel',0,1,1),
+ (12,'Rupgonj, Narayangonj','2019-04-14',65000,'Bandorban','rojina87@gmail.com','Abdullah',NULL,NULL,NULL,0,'Female','2019-04-20 11:07:18',NULL,'Rasida','Rojina Akter','1088148450','House Wife','2001','2019-04-20 11:07:19','Rasel',0,2,2),
+ (13,'Kataban','2019-04-07',55000,'Khulna','amzad@gmail.com','Azad',NULL,NULL,NULL,0,'Male','2019-04-20 11:09:43',NULL,'Mazeda','Amzad Hossain','261354750147','Business','2002','2019-04-20 11:09:43','Monika',0,2,3),
+ (14,'Syampur','2001-07-07',64000,'Satkhira','ainuddin@gmail.com','Al Azad',NULL,NULL,NULL,0,'Male','2019-04-20 11:12:28',NULL,'Hosneara','Ainuddin Al Azad','2661769450177','Business','2003','2019-04-20 11:12:28','Happy',0,3,1);
 /*!40000 ALTER TABLE `pilgrim` ENABLE KEYS */;
 
 
@@ -438,23 +476,24 @@ INSERT INTO `role` (`id`,`role_name`) VALUES
 DROP TABLE IF EXISTS `ticket_flight`;
 CREATE TABLE `ticket_flight` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `flight_date` date NOT NULL,
+  `flight_date` date DEFAULT NULL,
   `flight_no` varchar(255) NOT NULL,
-  `return_date` date NOT NULL,
+  `return_date` date DEFAULT NULL,
   `ticket_no` varchar(255) NOT NULL,
   `tik_agn_name` varchar(255) DEFAULT NULL,
   `pilg_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `UK_6d01l8c687rplaryo58ory1ll` (`flight_no`),
   UNIQUE KEY `UK_gulyqlkso1ln7cwruvujutssu` (`ticket_no`),
   KEY `FKd807a22i24xqx7eyac8om3vv5` (`pilg_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `ticket_flight`
 --
 
 /*!40000 ALTER TABLE `ticket_flight` DISABLE KEYS */;
+INSERT INTO `ticket_flight` (`id`,`flight_date`,`flight_no`,`return_date`,`ticket_no`,`tik_agn_name`,`pilg_id`) VALUES 
+ (1,NULL,'MEALS BOEING 747 400,2019-04-23','2019-06-15','06874788479561','Sun Shine Travels Inc',12);
 /*!40000 ALTER TABLE `ticket_flight` ENABLE KEYS */;
 
 
@@ -551,13 +590,18 @@ CREATE TABLE `visa_info` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_goskbqlfiteugmhhfsxeqmyl5` (`visa_no`),
   KEY `FKm64fga7dkr25220pb0b342cie` (`pil_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `visa_info`
 --
 
 /*!40000 ALTER TABLE `visa_info` DISABLE KEYS */;
+INSERT INTO `visa_info` (`id`,`apply_date`,`status`,`v_issue_date`,`v_validity_date`,`visa_no`,`pil_id`) VALUES 
+ (1,'2019-04-11',NULL,'2019-04-23','2019-06-10','4011214761',12),
+ (2,'2019-04-09',NULL,'2019-04-25','2019-06-15','4019177262',13),
+ (3,'2019-04-08',NULL,'2019-04-16','2019-04-21','40471667261',14),
+ (4,'2019-03-31',NULL,'2019-04-30','2019-06-15','4095777262',5);
 /*!40000 ALTER TABLE `visa_info` ENABLE KEYS */;
 
 

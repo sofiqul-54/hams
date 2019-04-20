@@ -47,7 +47,7 @@ public class TicketFlightInfoController {
             model.addAttribute("successMsg", "Successfully Saved!");
         }
         model.addAttribute("pilgrimlist", this.pilgrimRepo.findAll());
-        return "ticketflights/add";
+        return "redirect:/ticketflightinfo/list";
     }
 
     @GetMapping(value = "edit/{id}")

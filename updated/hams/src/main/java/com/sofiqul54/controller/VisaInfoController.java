@@ -47,7 +47,7 @@ public class VisaInfoController {
             model.addAttribute("successMsg", "Successfully Saved!");
         }
         model.addAttribute("pilgrimlist", this.pilgrimRepo.findAll());
-        return "visas/add";
+        return "redirect:/visainfo/list";
     }
 
     @GetMapping(value = "edit/{id}")

@@ -18,17 +18,15 @@ public class TicketFlightInfo {
 
     private String tikAgnName;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String flightNo;
 
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Column(nullable = false)
     private Date flightDate;
 
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Column(nullable = false)
     private Date returnDate;
 
     @OneToOne

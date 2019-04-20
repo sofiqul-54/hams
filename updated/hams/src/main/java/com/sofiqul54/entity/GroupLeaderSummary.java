@@ -9,27 +9,38 @@ public class GroupLeaderSummary {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     private String leaderName;
 
     private double commission;
 
     private double totalCommission;
 
-
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pilgrim_bookingsummary", nullable = false)
     private Pilgrim pilgrim;
 
-
+@OneToOne
+@JoinColumn(name = "groupleader_id", nullable = false)
+private Groupleader groupleader;
 
     public GroupLeaderSummary() {
     }
 
-    public GroupLeaderSummary(String leaderName, double commission, double totalCommission, Pilgrim pilgrim) {
+    public GroupLeaderSummary(String leaderName, double commission, double totalCommission, Pilgrim pilgrim,Groupleader groupleader) {
         this.leaderName = leaderName;
         this.commission = commission;
         this.totalCommission = totalCommission;
         this.pilgrim = pilgrim;
+        this.groupleader=groupleader;
+    }
+
+    public Groupleader getGroupleader() {
+        return groupleader;
+    }
+
+    public void setGroupleader(Groupleader groupleader) {
+        this.groupleader = groupleader;
     }
 
     public Long getId() {

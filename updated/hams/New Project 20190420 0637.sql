@@ -217,7 +217,9 @@ CREATE TABLE `group_leader_summary` (
   `leader_name` varchar(255) DEFAULT NULL,
   `total_commission` double NOT NULL,
   `pilgrim_bookingsummary` bigint(20) NOT NULL,
+  `groupleader_bookingsummary` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
+  KEY `FK45pr57yjunoywl46hapjph2wh` (`groupleader_bookingsummary`),
   KEY `FKtqhmhf860b7h10h01wlmh2hb6` (`pilgrim_bookingsummary`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
@@ -226,10 +228,10 @@ CREATE TABLE `group_leader_summary` (
 --
 
 /*!40000 ALTER TABLE `group_leader_summary` DISABLE KEYS */;
-INSERT INTO `group_leader_summary` (`id`,`commission`,`leader_name`,`total_commission`,`pilgrim_bookingsummary`) VALUES 
- (1,11600,'Ashraful Islam',11600,1),
- (2,17400,'Sagar',17400,2),
- (3,9600,'Sonia Akter',9600,3);
+INSERT INTO `group_leader_summary` (`id`,`commission`,`leader_name`,`total_commission`,`pilgrim_bookingsummary`,`groupleader_bookingsummary`) VALUES 
+ (1,11600,'Ashraful Islam',11600,1,0),
+ (2,17400,'Sagar',17400,2,0),
+ (3,9600,'Sonia Akter',9600,3,0);
 /*!40000 ALTER TABLE `group_leader_summary` ENABLE KEYS */;
 
 

@@ -37,13 +37,13 @@ A Complete Web Application on Hajj Agency Management System
 
 *Usecase Diagram*
 <img src="img/usecase.jpg">
-*Usecase Diagram*
+*Classdiagram*
 <img src="img/classdiagram copy.jpg">
-*Usecase Diagram*
+*Login Form*
 <img src="img/login.jpg">
-*Usecase Diagram*
+*Signup Form*
 <img src="img/signup.jpg">
-*Usecase Diagram*
+*Dashboard*
 <img src="img/02_dashboard.png">
 
 
